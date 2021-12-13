@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>654826391281-ll2okna90r9157ba37j2ceqi4g0bnb90.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.654826391281-ll2okna90r9157ba37j2ceqi4g0bnb90</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDPRC1wOXyv_e5_1eGONFv2VHe10qVwRPI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>654826391281</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.clockinout</string>
+	<key>PROJECT_ID</key>
+	<string>trainee-spinsoft</string>
+	<key>STORAGE_BUCKET</key>
+	<string>trainee-spinsoft.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:654826391281:ios:44181700dcb5aa2e468b50</string>
+</dict>
+</plist>
