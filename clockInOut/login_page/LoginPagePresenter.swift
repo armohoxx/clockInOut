@@ -23,6 +23,6 @@ class LoginPagePresenter: LoginPagePresenterProtocol {
     }
     
     func notifyViewRouteMainPage() {
-        self.router.routeToMainPage()
+        self.router.tabBarViewController()
     }
 }

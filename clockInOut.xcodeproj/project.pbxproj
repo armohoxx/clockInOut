@@ -44,6 +44,12 @@
 		414299572758D83000049E93 /* ForgetPasswordPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414299512758D83000049E93 /* ForgetPasswordPageInteractor.swift */; };
 		414299582758D83000049E93 /* ForgetPasswordPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414299522758D83000049E93 /* ForgetPasswordPageViewController.xib */; };
 		4192C0B227608C39008B82B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4192C0B127608C39008B82B0 /* GoogleService-Info.plist */; };
+		4196A6C727676B0F0084C7F5 /* MenuPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C127676B0F0084C7F5 /* MenuPagePresenter.swift */; };
+		4196A6C827676B0F0084C7F5 /* MenuPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C227676B0F0084C7F5 /* MenuPageRouter.swift */; };
+		4196A6C927676B0F0084C7F5 /* MenuPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C327676B0F0084C7F5 /* MenuPageViewController.swift */; };
+		4196A6CA27676B0F0084C7F5 /* MenuPageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C427676B0F0084C7F5 /* MenuPageProtocols.swift */; };
+		4196A6CB27676B0F0084C7F5 /* MenuPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C527676B0F0084C7F5 /* MenuPageInteractor.swift */; };
+		4196A6CC27676B0F0084C7F5 /* MenuPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4196A6C627676B0F0084C7F5 /* MenuPageViewController.xib */; };
 		46E302C6A2066CD1E589AEB2 /* Pods_clockInOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC50AACE0BA2F20E984FC21 /* Pods_clockInOut.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +94,12 @@
 		414299522758D83000049E93 /* ForgetPasswordPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPasswordPageViewController.xib; sourceTree = "<group>"; };
 		4192C0B02760899A008B82B0 /* clockInOut.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clockInOut.entitlements; sourceTree = "<group>"; };
 		4192C0B127608C39008B82B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4196A6C127676B0F0084C7F5 /* MenuPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPagePresenter.swift; sourceTree = "<group>"; };
+		4196A6C227676B0F0084C7F5 /* MenuPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageRouter.swift; sourceTree = "<group>"; };
+		4196A6C327676B0F0084C7F5 /* MenuPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageViewController.swift; sourceTree = "<group>"; };
+		4196A6C427676B0F0084C7F5 /* MenuPageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageProtocols.swift; sourceTree = "<group>"; };
+		4196A6C527676B0F0084C7F5 /* MenuPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageInteractor.swift; sourceTree = "<group>"; };
+		4196A6C627676B0F0084C7F5 /* MenuPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuPageViewController.xib; sourceTree = "<group>"; };
 		43E1732FF5FFAD808FF1C43D /* Pods-clockInOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clockInOut.release.xcconfig"; path = "Target Support Files/Pods-clockInOut/Pods-clockInOut.release.xcconfig"; sourceTree = "<group>"; };
 		CFC50AACE0BA2F20E984FC21 /* Pods_clockInOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clockInOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA49B209AA4134F5079D0180 /* Pods-clockInOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clockInOut.debug.xcconfig"; path = "Target Support Files/Pods-clockInOut/Pods-clockInOut.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +145,7 @@
 				4142993F2758D73700049E93 /* forgetpassword_page */,
 				414299402758D75000049E93 /* register_page */,
 				414299322758D70000049E93 /* main_page */,
+				4196A6C027676AD40084C7F5 /* menu_page */,
 				4119B1A3275777FB0042AD0B /* AppDelegate.swift */,
 				4119B1A5275777FB0042AD0B /* SceneDelegate.swift */,
 				4119B1A7275777FB0042AD0B /* ViewController.swift */,
@@ -162,11 +175,11 @@
 			isa = PBXGroup;
 			children = (
 				4119B1D327578C660042AD0B /* LoginPagePresenter.swift */,
+				4119B1D827578C660042AD0B /* LoginPageViewController.xib */,
 				4119B1D427578C660042AD0B /* LoginPageRouter.swift */,
 				4119B1D527578C660042AD0B /* LoginPageViewController.swift */,
 				4119B1D627578C660042AD0B /* LoginPageProtocols.swift */,
 				4119B1D727578C660042AD0B /* LoginPageInteractor.swift */,
-				4119B1D827578C660042AD0B /* LoginPageViewController.xib */,
 			);
 			path = login_page;
 			sourceTree = "<group>";
@@ -208,6 +221,19 @@
 				414299462758D78800049E93 /* RegisterPageViewController.xib */,
 			);
 			path = register_page;
+			sourceTree = "<group>";
+		};
+		4196A6C027676AD40084C7F5 /* menu_page */ = {
+			isa = PBXGroup;
+			children = (
+				4196A6C127676B0F0084C7F5 /* MenuPagePresenter.swift */,
+				4196A6C227676B0F0084C7F5 /* MenuPageRouter.swift */,
+				4196A6C327676B0F0084C7F5 /* MenuPageViewController.swift */,
+				4196A6C427676B0F0084C7F5 /* MenuPageProtocols.swift */,
+				4196A6C527676B0F0084C7F5 /* MenuPageInteractor.swift */,
+				4196A6C627676B0F0084C7F5 /* MenuPageViewController.xib */,
+			);
+			path = menu_page;
 			sourceTree = "<group>";
 		};
 		41BFFCD82759EE8400768F5D /* extension */ = {
@@ -302,6 +328,7 @@
 				4119B1B0275777FC0042AD0B /* LaunchScreen.storyboard in Resources */,
 				4119B1AD275777FC0042AD0B /* Assets.xcassets in Resources */,
 				4119B1AB275777FB0042AD0B /* Main.storyboard in Resources */,
+				4196A6CC27676B0F0084C7F5 /* MenuPageViewController.xib in Resources */,
 				414299582758D83000049E93 /* ForgetPasswordPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +384,7 @@
 			files = (
 				4119B1CE275784CC0042AD0B /* LaunchPageInteractor.swift in Sources */,
 				4119B1DA27578C660042AD0B /* LoginPageRouter.swift in Sources */,
+				4196A6CB27676B0F0084C7F5 /* MenuPageInteractor.swift in Sources */,
 				4142993A2758D71D00049E93 /* MainPageRouter.swift in Sources */,
 				414299552758D83000049E93 /* ForgetPasswordPageViewController.swift in Sources */,
 				414299542758D83000049E93 /* ForgetPasswordPageRouter.swift in Sources */,
@@ -364,9 +392,11 @@
 				4119B1DB27578C660042AD0B /* LoginPageViewController.swift in Sources */,
 				4119B1D927578C660042AD0B /* LoginPagePresenter.swift in Sources */,
 				4119B1CA275784CC0042AD0B /* LaunchPagePresenter.swift in Sources */,
+				4196A6CA27676B0F0084C7F5 /* MenuPageProtocols.swift in Sources */,
 				4119B1CB275784CC0042AD0B /* LaunchPageRouter.swift in Sources */,
 				414299492758D78800049E93 /* RegisterPageViewController.swift in Sources */,
 				4142993B2758D71D00049E93 /* MainPageViewController.swift in Sources */,
+				4196A6C927676B0F0084C7F5 /* MenuPageViewController.swift in Sources */,
 				4119B1A8275777FB0042AD0B /* ViewController.swift in Sources */,
 				4142993D2758D71D00049E93 /* MainPageInteractor.swift in Sources */,
 				414299472758D78800049E93 /* RegisterPagePresenter.swift in Sources */,
@@ -377,7 +407,9 @@
 				4119B1CC275784CC0042AD0B /* LaunchPageViewController.swift in Sources */,
 				414299532758D83000049E93 /* ForgetPasswordPagePresenter.swift in Sources */,
 				4142994A2758D78800049E93 /* RegisterPageProtocols.swift in Sources */,
+				4196A6C727676B0F0084C7F5 /* MenuPagePresenter.swift in Sources */,
 				4119B1DC27578C660042AD0B /* LoginPageProtocols.swift in Sources */,
+				4196A6C827676B0F0084C7F5 /* MenuPageRouter.swift in Sources */,
 				4142994B2758D78800049E93 /* RegisterPageInteractor.swift in Sources */,
 				4119B1A6275777FB0042AD0B /* SceneDelegate.swift in Sources */,
 				414299482758D78800049E93 /* RegisterPageRouter.swift in Sources */,

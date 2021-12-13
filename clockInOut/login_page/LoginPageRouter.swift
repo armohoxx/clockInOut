@@ -14,11 +14,35 @@ class LoginPageRouter: LoginPageWireframeProtocol {
     
     weak var viewController: UIViewController?
     
-    func routeToMainPage() {
-        let mainPage = MainPageRouter.createModule()
+    func tabBarViewController() {
+        let viewControllerTabBar = UITabBarController()
+        let viewControllerMainPage = MainPageRouter.createModule()
+        let viewControllerMenuPage = MenuPageRouter.createModule()
         
-        mainPage.modalPresentationStyle = .fullScreen
-        self.viewController?.present(mainPage, animated: true, completion: nil)
+        viewControllerMainPage.title = "Main"
+        viewControllerMenuPage.title = "Menu"
+        
+        if #available(iOS 13.0, *) {
+            viewControllerTabBar.tabBar.backgroundColor = .secondarySystemBackground
+        } else {
+            viewControllerTabBar.tabBar.backgroundColor = .white
+        }
+        
+        viewControllerTabBar.setViewControllers([viewControllerMainPage, viewControllerMenuPage], animated: false)
+        
+        guard let items = viewControllerTabBar.tabBar.items else {
+            return
+        }
+        
+        let images = ["clock", "text.justify"]
+        
+        for x in 0..<items.count {
+            items[x].image = UIImage(systemName: images[x])
+        }
+        
+        viewControllerTabBar.modalPresentationStyle = .fullScreen;
+        self.viewController?.present(viewControllerTabBar, animated: true)
+        
     }
     
     static func createModule() -> UIViewController {

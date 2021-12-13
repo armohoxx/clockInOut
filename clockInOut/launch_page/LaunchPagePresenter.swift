@@ -27,7 +27,7 @@ class LaunchPagePresenter: LaunchPagePresenterProtocol {
             if UserDefaults.standard.bool(forKey: "checkLogin") == false {
                 self.router.routeToLogin()
             } else {
-                self.router.routeToMain()
+                self.router.tabBarViewController()
             }
         })
     }

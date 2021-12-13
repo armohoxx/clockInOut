@@ -13,7 +13,7 @@ import Foundation
 //MARK: Wireframe -
 protocol LaunchPageWireframeProtocol: class {
     func routeToLogin()
-    func routeToMain()
+    func tabBarViewController()
 }
 //MARK: Presenter -
 protocol LaunchPagePresenterProtocol: class {
