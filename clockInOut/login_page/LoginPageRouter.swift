@@ -14,6 +14,13 @@ class LoginPageRouter: LoginPageWireframeProtocol {
     
     weak var viewController: UIViewController?
     
+    func routeToSignUp() {
+        let viewControllerSignUpPage = RegisterPageRouter.createModule()
+        
+        viewControllerSignUpPage.modalPresentationStyle = .fullScreen;
+        self.viewController?.present(viewControllerSignUpPage, animated: true)
+    }
+    
     func tabBarViewController() {
         let viewControllerTabBar = UITabBarController()
         let viewControllerMainPage = MainPageRouter.createModule()

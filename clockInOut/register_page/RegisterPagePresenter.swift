@@ -21,5 +21,23 @@ class RegisterPagePresenter: RegisterPagePresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
+    
+    func notifyRouteToLogin() {
+        self.router.routeToLogin()
+    }
+    
+    func notifyCreatereateUser(firstName: String, lastName: String, email: String, password: String) {
+        
+        self.interactor?.createUser(firstName: firstName, lastName: lastName, email: email, password: password)
+        
+    }
+    
+    func notifyErrorCreateUser(error: Error?) {
+        self.view?.showErrorAlert(error: error)
+    }
+    
+    func notifySuccessCreateUser() {
+        self.view?.showSuccessAlert()
+    }
 
 }

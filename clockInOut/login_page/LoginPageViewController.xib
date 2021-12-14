@@ -72,7 +72,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xo-Qm-hOZ">
                                     <rect key="frame" x="171.66666666666663" y="0.0" width="156.33333333333337" height="31"/>
-                                    <buttonConfiguration key="configuration" style="gray" title="Register">
+                                    <buttonConfiguration key="configuration" style="gray" title="Sign Up">
                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </buttonConfiguration>
                                     <connections>
@@ -84,7 +84,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swH-rh-85W">
                             <rect key="frame" x="0.0" y="239" width="328" height="31"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                             <connections>
                                 <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="pan-Y0-My3"/>
                             </connections>

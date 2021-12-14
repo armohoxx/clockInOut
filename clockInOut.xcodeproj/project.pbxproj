@@ -37,12 +37,6 @@
 		4142994A2758D78800049E93 /* RegisterPageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414299442758D78800049E93 /* RegisterPageProtocols.swift */; };
 		4142994B2758D78800049E93 /* RegisterPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414299452758D78800049E93 /* RegisterPageInteractor.swift */; };
 		4142994C2758D78800049E93 /* RegisterPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414299462758D78800049E93 /* RegisterPageViewController.xib */; };
-		414299532758D83000049E93 /* ForgetPasswordPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142994D2758D83000049E93 /* ForgetPasswordPagePresenter.swift */; };
-		414299542758D83000049E93 /* ForgetPasswordPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142994E2758D83000049E93 /* ForgetPasswordPageRouter.swift */; };
-		414299552758D83000049E93 /* ForgetPasswordPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142994F2758D83000049E93 /* ForgetPasswordPageViewController.swift */; };
-		414299562758D83000049E93 /* ForgetPasswordPageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414299502758D83000049E93 /* ForgetPasswordPageProtocols.swift */; };
-		414299572758D83000049E93 /* ForgetPasswordPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414299512758D83000049E93 /* ForgetPasswordPageInteractor.swift */; };
-		414299582758D83000049E93 /* ForgetPasswordPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 414299522758D83000049E93 /* ForgetPasswordPageViewController.xib */; };
 		4192C0B227608C39008B82B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4192C0B127608C39008B82B0 /* GoogleService-Info.plist */; };
 		4196A6C727676B0F0084C7F5 /* MenuPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C127676B0F0084C7F5 /* MenuPagePresenter.swift */; };
 		4196A6C827676B0F0084C7F5 /* MenuPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C227676B0F0084C7F5 /* MenuPageRouter.swift */; };
@@ -86,12 +80,6 @@
 		414299442758D78800049E93 /* RegisterPageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageProtocols.swift; sourceTree = "<group>"; };
 		414299452758D78800049E93 /* RegisterPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageInteractor.swift; sourceTree = "<group>"; };
 		414299462758D78800049E93 /* RegisterPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterPageViewController.xib; sourceTree = "<group>"; };
-		4142994D2758D83000049E93 /* ForgetPasswordPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPagePresenter.swift; sourceTree = "<group>"; };
-		4142994E2758D83000049E93 /* ForgetPasswordPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPageRouter.swift; sourceTree = "<group>"; };
-		4142994F2758D83000049E93 /* ForgetPasswordPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPageViewController.swift; sourceTree = "<group>"; };
-		414299502758D83000049E93 /* ForgetPasswordPageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPageProtocols.swift; sourceTree = "<group>"; };
-		414299512758D83000049E93 /* ForgetPasswordPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPageInteractor.swift; sourceTree = "<group>"; };
-		414299522758D83000049E93 /* ForgetPasswordPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPasswordPageViewController.xib; sourceTree = "<group>"; };
 		4192C0B02760899A008B82B0 /* clockInOut.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clockInOut.entitlements; sourceTree = "<group>"; };
 		4192C0B127608C39008B82B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4196A6C127676B0F0084C7F5 /* MenuPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPagePresenter.swift; sourceTree = "<group>"; };
@@ -142,7 +130,6 @@
 				41BFFCD82759EE8400768F5D /* extension */,
 				4119B1C3275784870042AD0B /* launch_page */,
 				4119B1D227578C4D0042AD0B /* login_page */,
-				4142993F2758D73700049E93 /* forgetpassword_page */,
 				414299402758D75000049E93 /* register_page */,
 				414299322758D70000049E93 /* main_page */,
 				4196A6C027676AD40084C7F5 /* menu_page */,
@@ -195,19 +182,6 @@
 				414299382758D71D00049E93 /* MainPageViewController.xib */,
 			);
 			path = main_page;
-			sourceTree = "<group>";
-		};
-		4142993F2758D73700049E93 /* forgetpassword_page */ = {
-			isa = PBXGroup;
-			children = (
-				4142994D2758D83000049E93 /* ForgetPasswordPagePresenter.swift */,
-				4142994E2758D83000049E93 /* ForgetPasswordPageRouter.swift */,
-				4142994F2758D83000049E93 /* ForgetPasswordPageViewController.swift */,
-				414299502758D83000049E93 /* ForgetPasswordPageProtocols.swift */,
-				414299512758D83000049E93 /* ForgetPasswordPageInteractor.swift */,
-				414299522758D83000049E93 /* ForgetPasswordPageViewController.xib */,
-			);
-			path = forgetpassword_page;
 			sourceTree = "<group>";
 		};
 		414299402758D75000049E93 /* register_page */ = {
@@ -329,7 +303,6 @@
 				4119B1AD275777FC0042AD0B /* Assets.xcassets in Resources */,
 				4119B1AB275777FB0042AD0B /* Main.storyboard in Resources */,
 				4196A6CC27676B0F0084C7F5 /* MenuPageViewController.xib in Resources */,
-				414299582758D83000049E93 /* ForgetPasswordPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,8 +359,6 @@
 				4119B1DA27578C660042AD0B /* LoginPageRouter.swift in Sources */,
 				4196A6CB27676B0F0084C7F5 /* MenuPageInteractor.swift in Sources */,
 				4142993A2758D71D00049E93 /* MainPageRouter.swift in Sources */,
-				414299552758D83000049E93 /* ForgetPasswordPageViewController.swift in Sources */,
-				414299542758D83000049E93 /* ForgetPasswordPageRouter.swift in Sources */,
 				4119B1DD27578C660042AD0B /* LoginPageInteractor.swift in Sources */,
 				4119B1DB27578C660042AD0B /* LoginPageViewController.swift in Sources */,
 				4119B1D927578C660042AD0B /* LoginPagePresenter.swift in Sources */,
@@ -402,10 +373,8 @@
 				414299472758D78800049E93 /* RegisterPagePresenter.swift in Sources */,
 				4119B1CD275784CC0042AD0B /* LaunchPageProtocols.swift in Sources */,
 				4119B1A4275777FB0042AD0B /* AppDelegate.swift in Sources */,
-				414299562758D83000049E93 /* ForgetPasswordPageProtocols.swift in Sources */,
 				414299392758D71D00049E93 /* MainPagePresenter.swift in Sources */,
 				4119B1CC275784CC0042AD0B /* LaunchPageViewController.swift in Sources */,
-				414299532758D83000049E93 /* ForgetPasswordPagePresenter.swift in Sources */,
 				4142994A2758D78800049E93 /* RegisterPageProtocols.swift in Sources */,
 				4196A6C727676B0F0084C7F5 /* MenuPagePresenter.swift in Sources */,
 				4119B1DC27578C660042AD0B /* LoginPageProtocols.swift in Sources */,
@@ -414,7 +383,6 @@
 				4119B1A6275777FB0042AD0B /* SceneDelegate.swift in Sources */,
 				414299482758D78800049E93 /* RegisterPageRouter.swift in Sources */,
 				4142993C2758D71D00049E93 /* MainPageProtocols.swift in Sources */,
-				414299572758D83000049E93 /* ForgetPasswordPageInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

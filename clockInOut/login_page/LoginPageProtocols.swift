@@ -13,20 +13,29 @@ import Foundation
 //MARK: Wireframe -
 protocol LoginPageWireframeProtocol: class {
     func tabBarViewController()
+    func routeToSignUp()
 }
 //MARK: Presenter -
 protocol LoginPagePresenterProtocol: class {
     func notifyViewRouteMainPage()
+    func notifyRouteToSignUpPage()
+    func notifySuccessResetAlert()
+    func notifyCheckLogin(email: String, password: String)
+    func notifyErrorAlert(error: Error?)
+    func notifyResetPassword(email: String)
 }
 
 //MARK: Interactor -
 protocol LoginPageInteractorProtocol: class {
-
     var presenter: LoginPagePresenterProtocol?  { get set }
+    func checkLogin(email: String, password: String)
+    func resetPassword(email: String)
 }
 
 //MARK: View -
 protocol LoginPageViewProtocol: class {
 
     var presenter: LoginPagePresenterProtocol?  { get set }
+    func showErrorAlert(error: Error?)
+    func showSuccessResetAlert()
 }

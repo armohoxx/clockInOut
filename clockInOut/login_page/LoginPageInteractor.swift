@@ -9,8 +9,29 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginPageInteractor: LoginPageInteractorProtocol {
 
     weak var presenter: LoginPagePresenterProtocol?
+    
+    func checkLogin(email: String, password: String) {
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] result, error in
+            self?.presenter?.notifyErrorAlert(error: error)
+            UserDefaults.standard.set(true, forKey: "checkLogin")
+            print("signed in")
+            self?.presenter?.notifyViewRouteMainPage()
+        })
+    }
+    
+    func resetPassword(email: String) {
+        FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                self.presenter?.notifyErrorAlert(error: error)
+            } else {
+                self.presenter?.notifySuccessResetAlert()
+            }
+        }
+    }
 }

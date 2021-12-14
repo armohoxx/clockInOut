@@ -9,13 +9,111 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
 
 	var presenter: RegisterPagePresenterProtocol?
 
-	override func viewDidLoad() {
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var buttonSignUp: UIButton!
+    @IBOutlet weak var buttonCancel: UIButton!
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Sign Up"
+        if #available(iOS 13.0, *) {
+            navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
+        } else {
+            navigationController?.navigationBar.backgroundColor = .white
+        }
     }
-
+    
+    @IBAction func didTapSignUp(_ sender: UIButton) {
+        guard let firstName = firstNameField.text, !firstName.isEmpty,
+              let lastName = lastNameField.text, !lastName.isEmpty,
+              let email = emailField.text?.trimmingCharacters(in: .whitespaces), !email.isEmpty,
+              let password = passwordField.text?.trimmingCharacters(in: .whitespaces), !password.isEmpty,
+              let confirmPassword = confirmPasswordField.text?.trimmingCharacters(in: .whitespaces), !confirmPassword.isEmpty else {
+                  self.showEmptyAlert()
+            return
+        }
+        
+        if (password != confirmPassword) {
+            showConfirmPasswordAlert()
+        } else {
+            self.presenter?.notifyCreatereateUser(firstName: firstName, lastName: lastName, email: email, password: password)
+        }
+        
+    }
+    
+    @IBAction func didTapCancel(_ sender: UIButton) {
+        self.presenter?.notifyRouteToLogin()
+    }
+    
+    func showSuccessAlert() {
+        let alertController = UIAlertController(title: "Success",
+                                                message: "Success",
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .cancel,
+                                     handler: { _ in
+            
+            self.presenter?.notifyRouteToLogin()
+            
+        })
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showEmptyAlert() {
+        let alertController = UIAlertController(title: "Someting Wrong",
+                                                message: "Please enter any fields",
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showConfirmPasswordAlert() {
+        let alertController = UIAlertController(title: "Someting Wrong",
+                                                message: "Password does not match",
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(error: Error?) {
+        guard error == nil else {
+            let alertController = UIAlertController(title: "Someting Wrong",
+                                                    message: "\(error!.localizedDescription)",
+                                                    preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK",
+                                             style: .cancel,
+                                             handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+    }
+    
 }

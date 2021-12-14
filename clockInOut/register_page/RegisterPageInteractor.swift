@@ -9,8 +9,33 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegisterPageInteractor: RegisterPageInteractorProtocol {
 
     weak var presenter: RegisterPagePresenterProtocol?
+    
+    func createUser(firstName: String, lastName: String, email: String, password: String) {
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
+            
+            if (error != nil) {
+                self?.presenter?.notifyErrorCreateUser(error: error)
+            } else {
+                let db = Firestore.firestore()
+                
+                db.collection("user").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid]) {
+                    error in
+                    
+                    if error != nil {
+                        self?.presenter?.notifyErrorCreateUser(error: error)
+                    } else {
+                        print("create user")
+                        self?.presenter?.notifySuccessCreateUser()
+                    }
+                }
+            }
+        })
+    }
 }

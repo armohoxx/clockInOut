@@ -25,4 +25,24 @@ class LoginPagePresenter: LoginPagePresenterProtocol {
     func notifyViewRouteMainPage() {
         self.router.tabBarViewController()
     }
+    
+    func notifyRouteToSignUpPage() {
+        self.router.routeToSignUp()
+    }
+    
+    func notifyCheckLogin(email: String, password: String) {
+        self.interactor?.checkLogin(email: email, password: password)
+    }
+    
+    func notifyResetPassword(email: String) {
+        self.interactor?.resetPassword(email: email)
+    }
+    
+    func notifySuccessResetAlert() {
+        self.view?.showSuccessResetAlert()
+    }
+    
+    func notifyErrorAlert(error: Error?) {
+        self.view?.showErrorAlert(error: error)
+    }
 }

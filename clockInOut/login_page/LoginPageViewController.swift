@@ -46,26 +46,62 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
     }
     
     @IBAction func didTapForgetPassword(_ sender: UIButton) {
-        
+        self.showResetPasswordAlert()
     }
     
     @IBAction func didTapRegister(_ sender: UIButton) {
-        
+        self.presenter?.notifyRouteToSignUpPage()
     }
     
     @IBAction func didTapLogin(_ sender: UIButton) {
-        guard let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty else {
+        guard let email = emailField.text?.trimmingCharacters(in: .whitespaces), !email.isEmpty,
+              let password = passwordField.text?.trimmingCharacters(in: .whitespaces), !password.isEmpty else {
                   self.showEmptyAlert()
             return
         }
         
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] result, error in
-            self?.showErrorAlert(error: error)
-            UserDefaults.standard.set(true, forKey: "checkLogin")
-            print("signed in")
-            self?.presenter?.notifyViewRouteMainPage()
+        self.presenter?.notifyCheckLogin(email: email, password: password)
+    }
+    
+    func showResetPasswordAlert() {
+        let alertController = UIAlertController(title: "Reset Password",
+                                                message: "",
+                                                preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let confirmAction = UIAlertAction(title: "Continue", style: .default, handler: { _ in
+            guard let fieldEmail = alertController.textFields, fieldEmail.count == 1 else {
+                return
+            }
+            let resetEmailField = fieldEmail[0]
+            
+            self.presenter?.notifyResetPassword(email: resetEmailField.text!)
         })
+        
+        alertController.addTextField { field in
+            field.placeholder = "Please enter your email"
+            field.returnKeyType = .continue
+            field.keyboardType = .emailAddress
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showSuccessResetAlert() {
+        let alertController = UIAlertController(title: "Success",
+                                                message: "Password reset email was sent",
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func showEmptyAlert() {

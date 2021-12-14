@@ -12,21 +12,27 @@ import Foundation
 
 //MARK: Wireframe -
 protocol RegisterPageWireframeProtocol: class {
-
+    func routeToLogin()
 }
 //MARK: Presenter -
 protocol RegisterPagePresenterProtocol: class {
-
+    func notifyRouteToLogin()
+    func notifyErrorCreateUser(error: Error?)
+    func notifySuccessCreateUser()
+    func notifyCreatereateUser(firstName: String, lastName: String, email: String, password: String)
 }
 
 //MARK: Interactor -
 protocol RegisterPageInteractorProtocol: class {
 
-  var presenter: RegisterPagePresenterProtocol?  { get set }
+    var presenter: RegisterPagePresenterProtocol?  { get set }
+    func createUser(firstName: String, lastName: String, email: String, password: String)
 }
 
 //MARK: View -
 protocol RegisterPageViewProtocol: class {
-
-  var presenter: RegisterPagePresenterProtocol?  { get set }
+    
+    var presenter: RegisterPagePresenterProtocol?  { get set }
+    func showErrorAlert(error: Error?)
+    func showSuccessAlert()
 }

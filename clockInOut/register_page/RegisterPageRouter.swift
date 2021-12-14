@@ -14,6 +14,10 @@ class RegisterPageRouter: RegisterPageWireframeProtocol {
     
     weak var viewController: UIViewController?
     
+    func routeToLogin() {
+        self.viewController?.dismiss(animated: true, completion: nil)
+    }
+    
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = RegisterPageViewController(nibName: nil, bundle: nil)
@@ -25,6 +29,6 @@ class RegisterPageRouter: RegisterPageWireframeProtocol {
         interactor.presenter = presenter
         router.viewController = view
         
-        return view
+        return UINavigationController(rootViewController: view)
     }
 }
