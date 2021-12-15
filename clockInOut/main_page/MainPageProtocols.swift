@@ -12,11 +12,11 @@ import Foundation
 
 //MARK: Wireframe -
 protocol MainPageWireframeProtocol: class {
-    func routeToLoginPage()
+
 }
 //MARK: Presenter -
 protocol MainPagePresenterProtocol: class {
-    func notifyRouteLogin()
+    func getDateTime()
 }
 
 //MARK: Interactor -
@@ -29,4 +29,5 @@ protocol MainPageInteractorProtocol: class {
 protocol MainPageViewProtocol: class {
 
     var presenter: MainPagePresenterProtocol?  { get set }
+    func showDateTime(currentDate: String, currentTime: String)
 }

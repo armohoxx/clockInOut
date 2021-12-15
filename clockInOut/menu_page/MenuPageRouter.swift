@@ -14,6 +14,13 @@ class MenuPageRouter: MenuPageWireframeProtocol {
     
     weak var viewController: UIViewController?
     
+    func routeToLoginPage() {
+        let loginPage = LoginPageRouter.createModule()
+        
+        loginPage.modalPresentationStyle = .fullScreen
+        self.viewController?.present(loginPage, animated: true, completion: nil)
+    }
+    
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = MenuPageViewController(nibName: nil, bundle: nil)

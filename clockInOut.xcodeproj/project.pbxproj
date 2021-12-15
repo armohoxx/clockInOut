@@ -44,6 +44,10 @@
 		4196A6CA27676B0F0084C7F5 /* MenuPageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C427676B0F0084C7F5 /* MenuPageProtocols.swift */; };
 		4196A6CB27676B0F0084C7F5 /* MenuPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A6C527676B0F0084C7F5 /* MenuPageInteractor.swift */; };
 		4196A6CC27676B0F0084C7F5 /* MenuPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4196A6C627676B0F0084C7F5 /* MenuPageViewController.xib */; };
+		41AD6B6027688885008BB91A /* testPushNotification.apns in Resources */ = {isa = PBXBuildFile; fileRef = 41AD6B5F27688885008BB91A /* testPushNotification.apns */; };
+		41AD6B642768994E008BB91A /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD6B622768994E008BB91A /* MenuTableViewCell.swift */; };
+		41AD6B652768994E008BB91A /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD6B632768994E008BB91A /* MenuTableViewCell.xib */; };
+		41AD6B6727689BEA008BB91A /* MenuPageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD6B6627689BEA008BB91A /* MenuPageEntity.swift */; };
 		46E302C6A2066CD1E589AEB2 /* Pods_clockInOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC50AACE0BA2F20E984FC21 /* Pods_clockInOut.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +92,10 @@
 		4196A6C427676B0F0084C7F5 /* MenuPageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageProtocols.swift; sourceTree = "<group>"; };
 		4196A6C527676B0F0084C7F5 /* MenuPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageInteractor.swift; sourceTree = "<group>"; };
 		4196A6C627676B0F0084C7F5 /* MenuPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuPageViewController.xib; sourceTree = "<group>"; };
+		41AD6B5F27688885008BB91A /* testPushNotification.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = testPushNotification.apns; sourceTree = "<group>"; };
+		41AD6B622768994E008BB91A /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		41AD6B632768994E008BB91A /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		41AD6B6627689BEA008BB91A /* MenuPageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageEntity.swift; sourceTree = "<group>"; };
 		43E1732FF5FFAD808FF1C43D /* Pods-clockInOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clockInOut.release.xcconfig"; path = "Target Support Files/Pods-clockInOut/Pods-clockInOut.release.xcconfig"; sourceTree = "<group>"; };
 		CFC50AACE0BA2F20E984FC21 /* Pods_clockInOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_clockInOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA49B209AA4134F5079D0180 /* Pods-clockInOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clockInOut.debug.xcconfig"; path = "Target Support Files/Pods-clockInOut/Pods-clockInOut.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 				4119B1A9275777FB0042AD0B /* Main.storyboard */,
 				4119B1AC275777FC0042AD0B /* Assets.xcassets */,
 				4119B1AE275777FC0042AD0B /* LaunchScreen.storyboard */,
+				41AD6B5F27688885008BB91A /* testPushNotification.apns */,
 				4119B1B1275777FC0042AD0B /* Info.plist */,
 				4192C0B127608C39008B82B0 /* GoogleService-Info.plist */,
 			);
@@ -200,14 +209,25 @@
 		4196A6C027676AD40084C7F5 /* menu_page */ = {
 			isa = PBXGroup;
 			children = (
+				41AD6B6127689920008BB91A /* cell */,
 				4196A6C127676B0F0084C7F5 /* MenuPagePresenter.swift */,
 				4196A6C227676B0F0084C7F5 /* MenuPageRouter.swift */,
 				4196A6C327676B0F0084C7F5 /* MenuPageViewController.swift */,
 				4196A6C427676B0F0084C7F5 /* MenuPageProtocols.swift */,
 				4196A6C527676B0F0084C7F5 /* MenuPageInteractor.swift */,
 				4196A6C627676B0F0084C7F5 /* MenuPageViewController.xib */,
+				41AD6B6627689BEA008BB91A /* MenuPageEntity.swift */,
 			);
 			path = menu_page;
+			sourceTree = "<group>";
+		};
+		41AD6B6127689920008BB91A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				41AD6B622768994E008BB91A /* MenuTableViewCell.swift */,
+				41AD6B632768994E008BB91A /* MenuTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		41BFFCD82759EE8400768F5D /* extension */ = {
@@ -300,7 +320,9 @@
 				4119B1DE27578C660042AD0B /* LoginPageViewController.xib in Resources */,
 				4142993E2758D71D00049E93 /* MainPageViewController.xib in Resources */,
 				4119B1B0275777FC0042AD0B /* LaunchScreen.storyboard in Resources */,
+				41AD6B6027688885008BB91A /* testPushNotification.apns in Resources */,
 				4119B1AD275777FC0042AD0B /* Assets.xcassets in Resources */,
+				41AD6B652768994E008BB91A /* MenuTableViewCell.xib in Resources */,
 				4119B1AB275777FB0042AD0B /* Main.storyboard in Resources */,
 				4196A6CC27676B0F0084C7F5 /* MenuPageViewController.xib in Resources */,
 			);
@@ -365,6 +387,7 @@
 				4119B1CA275784CC0042AD0B /* LaunchPagePresenter.swift in Sources */,
 				4196A6CA27676B0F0084C7F5 /* MenuPageProtocols.swift in Sources */,
 				4119B1CB275784CC0042AD0B /* LaunchPageRouter.swift in Sources */,
+				41AD6B642768994E008BB91A /* MenuTableViewCell.swift in Sources */,
 				414299492758D78800049E93 /* RegisterPageViewController.swift in Sources */,
 				4142993B2758D71D00049E93 /* MainPageViewController.swift in Sources */,
 				4196A6C927676B0F0084C7F5 /* MenuPageViewController.swift in Sources */,
@@ -374,6 +397,7 @@
 				4119B1CD275784CC0042AD0B /* LaunchPageProtocols.swift in Sources */,
 				4119B1A4275777FB0042AD0B /* AppDelegate.swift in Sources */,
 				414299392758D71D00049E93 /* MainPagePresenter.swift in Sources */,
+				41AD6B6727689BEA008BB91A /* MenuPageEntity.swift in Sources */,
 				4119B1CC275784CC0042AD0B /* LaunchPageViewController.swift in Sources */,
 				4142994A2758D78800049E93 /* RegisterPageProtocols.swift in Sources */,
 				4196A6C727676B0F0084C7F5 /* MenuPagePresenter.swift in Sources */,

@@ -12,21 +12,24 @@ import Foundation
 
 //MARK: Wireframe -
 protocol MenuPageWireframeProtocol: class {
-
+    func routeToLoginPage()
 }
 //MARK: Presenter -
 protocol MenuPagePresenterProtocol: class {
-
+    
+    func notifyRouteLogin()
+    func notifyLogout()
 }
 
 //MARK: Interactor -
 protocol MenuPageInteractorProtocol: class {
 
-  var presenter: MenuPagePresenterProtocol?  { get set }
+    var presenter: MenuPagePresenterProtocol?  { get set }
+    func doLogout()
 }
 
 //MARK: View -
 protocol MenuPageViewProtocol: class {
 
-  var presenter: MenuPagePresenterProtocol?  { get set }
+    var presenter: MenuPagePresenterProtocol?  { get set }
 }

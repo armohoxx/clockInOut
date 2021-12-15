@@ -13,8 +13,11 @@ import UIKit
 class MenuPageViewController: UIViewController, MenuPageViewProtocol {
 
 	var presenter: MenuPagePresenterProtocol?
-
-	override func viewDidLoad() {
+    var menuListValue: [MenuList] = [ MenuList(menuList: "Profile", menuImage: UIImage(systemName: "person.circle.fill")!), MenuList(menuList: "Logout", menuImage: UIImage(systemName: "rectangle.portrait.and.arrow.right.fill")!)]
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Menu"
@@ -23,6 +26,51 @@ class MenuPageViewController: UIViewController, MenuPageViewProtocol {
         } else {
             navigationController?.navigationBar.backgroundColor = .white
         }
+        
+        tableView.register(MenuTableViewCell.nib(), forCellReuseIdentifier: "MenuTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func showLogoutAlert() {
+        let alertController = UIAlertController(title: "Logout",
+                                                message: "Are you sure?",
+                                                preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let confirmAction = UIAlertAction(title: "Continue", style: .default, handler: { _ in
+            self.presenter?.notifyLogout()
+        })
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 
+}
+
+extension MenuPageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if menuListValue[indexPath.item].menuList == "Logout" {
+            self.showLogoutAlert()
+        } else {
+            
+        }
+    }
+}
+
+extension MenuPageViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuListValue.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell
+        
+        cell.configure(with: menuListValue[indexPath.item])
+        
+        return cell
+    }
 }

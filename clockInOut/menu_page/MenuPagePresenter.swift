@@ -21,5 +21,13 @@ class MenuPagePresenter: MenuPagePresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
+    
+    func notifyRouteLogin() {
+        self.router.routeToLoginPage()
+    }
+    
+    func notifyLogout() {
+        self.interactor?.doLogout()
+    }
 
 }

@@ -9,14 +9,14 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
 class MainPageViewController: UIViewController, MainPageViewProtocol {
 
 	var presenter: MainPagePresenterProtocol?
-
-    @IBOutlet weak var logoutButton: UIButton!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +27,23 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
         } else {
             navigationController?.navigationBar.backgroundColor = .white
         }
+        
+        self.showLoader()
+        self.presenter?.getDateTime()
     }
     
-    @IBAction func didTapLogout(_ sender: UIButton) {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-            print("singed out")
-            UserDefaults.standard.set(false, forKey: "checkLogin")
-            self.presenter?.notifyRouteLogin()
-        }
-        catch {
-            print("Something went wrong")
-        }
+    func showLoader() {
+        indicator.color = .systemRed
+        indicator.startAnimating()
+    }
+    
+    func showDateTime(currentDate: String, currentTime: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
+            self.timeLabel.text = currentTime
+            self.dateLabel.text = currentDate
+        })
     }
 }
 
