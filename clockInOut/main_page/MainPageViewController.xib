@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainPageViewController" customModule="clockInOut" customModuleProvider="target">
             <connections>
+                <outlet property="buttonClockIn" destination="U6R-7j-X9L" id="b2U-S9-jo2"/>
+                <outlet property="buttonClockOut" destination="VFe-1I-vP8" id="6qs-1P-k65"/>
                 <outlet property="dateLabel" destination="A8m-u5-ikz" id="8FQ-S8-kex"/>
                 <outlet property="indicator" destination="EiF-of-uXf" id="Q0o-y8-Cxx"/>
                 <outlet property="timeLabel" destination="PRc-NV-k9y" id="h6S-Wh-XO7"/>
@@ -20,47 +22,81 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRc-NV-k9y">
-                    <rect key="frame" x="15" y="150" width="384" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="xvN-bp-OOH"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="50"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8m-u5-ikz">
-                    <rect key="frame" x="15" y="237" width="384" height="36"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="e3s-SV-2kl"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EiF-of-uXf">
-                    <rect key="frame" x="197" y="358" width="20" height="20"/>
-                </activityIndicatorView>
+                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="FHv-ZM-bPv">
+                    <rect key="frame" x="50" y="193" width="314" height="350"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRc-NV-k9y">
+                            <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="OTh-yD-aPo"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="50"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8m-u5-ikz">
+                            <rect key="frame" x="0.0" y="85" width="314" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="vOS-WS-NZV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EiF-of-uXf">
+                            <rect key="frame" x="0.0" y="170" width="314" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="EOk-5l-2di"/>
+                            </constraints>
+                        </activityIndicatorView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6R-7j-X9L">
+                            <rect key="frame" x="0.0" y="245" width="314" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="SyM-XU-Yhg"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Clock In">
+                                <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="didTapClockIn:" destination="-1" eventType="touchUpInside" id="v2r-iu-2cI"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-1I-vP8">
+                            <rect key="frame" x="0.0" y="310" width="314" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="I7e-JS-re6"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Clock Out">
+                                <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="didTapClockOut:" destination="-1" eventType="touchUpInside" id="IxI-Fl-CcN"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="PRc-NV-k9y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0Wj-mM-hy7"/>
-                <constraint firstAttribute="trailing" secondItem="PRc-NV-k9y" secondAttribute="trailing" constant="15" id="9TX-0Q-sSd"/>
-                <constraint firstItem="EiF-of-uXf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GsG-LC-lac"/>
-                <constraint firstItem="A8m-u5-ikz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JaO-lq-uGJ"/>
-                <constraint firstItem="PRc-NV-k9y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="TYs-DZ-SsK"/>
-                <constraint firstItem="A8m-u5-ikz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Tql-Cb-Jqr"/>
-                <constraint firstAttribute="trailing" secondItem="A8m-u5-ikz" secondAttribute="trailing" constant="15" id="pdO-xA-oOy"/>
-                <constraint firstItem="EiF-of-uXf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="v6P-yN-Ibm"/>
-                <constraint firstItem="PRc-NV-k9y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="wxF-dW-8ED"/>
-                <constraint firstItem="A8m-u5-ikz" firstAttribute="top" secondItem="PRc-NV-k9y" secondAttribute="bottom" constant="27" id="zuy-5X-rDK"/>
+                <constraint firstItem="FHv-ZM-bPv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="9bn-nx-sVf"/>
+                <constraint firstAttribute="trailing" secondItem="FHv-ZM-bPv" secondAttribute="trailing" constant="50" id="R7i-K8-HTh"/>
+                <constraint firstItem="FHv-ZM-bPv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k4o-aa-gqV"/>
+                <constraint firstItem="FHv-ZM-bPv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ljO-5c-6ua"/>
             </constraints>
-            <point key="canvasLocation" x="136.80000000000001" y="124.58770614692655"/>
+            <point key="canvasLocation" x="136.23188405797103" y="123.91304347826087"/>
         </view>
     </objects>
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

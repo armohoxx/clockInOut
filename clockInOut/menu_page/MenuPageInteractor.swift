@@ -21,6 +21,8 @@ class MenuPageInteractor: MenuPageInteractorProtocol {
             try FirebaseAuth.Auth.auth().signOut()
             print("singed out")
             UserDefaults.standard.set(false, forKey: "checkLogin")
+            UserDefaults.standard.set(nil, forKey: "username")
+            UserDefaults.standard.set("secondarySystemBackground", forKey: "background_color")
             self.presenter?.notifyRouteLogin()
         }
         catch {

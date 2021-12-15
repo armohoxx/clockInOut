@@ -61,4 +61,21 @@ class MainPagePresenter: MainPagePresenterProtocol {
             self.view?.showDateTime(currentDate: currentDate, currentTime: currentTime)
         }
     }
+    
+    func getClockIn() {
+        self.interactor?.setClockIn()
+    }
+    
+    func getClockOut() {
+        self.interactor?.setClockOut()
+    }
+    
+    func notifySuccessAlert(message: String) {
+        self.view?.showSuccessAlert(message: message)
+    }
+    
+    func getBackGroundColor(color: UIColor) {
+        self.view?.changeBackgroundColor(color: color)
+    }
+    
 }

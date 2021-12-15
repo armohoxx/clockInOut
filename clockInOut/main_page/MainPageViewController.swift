@@ -17,11 +17,14 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var buttonClockIn: UIButton!
+    @IBOutlet weak var buttonClockOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Main"
+        
         if #available(iOS 13.0, *) {
             navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
         } else {
@@ -29,6 +32,7 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
         }
         
         self.showLoader()
+        self.view.backgroundColor = UIColor().named(UserDefaults.standard.string(forKey: "background_color")!)
         self.presenter?.getDateTime()
     }
     
@@ -44,6 +48,46 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
             self.timeLabel.text = currentTime
             self.dateLabel.text = currentDate
         })
+    }
+    
+    @IBAction func didTapClockIn(_ sender: UIButton) {
+        self.presenter?.getClockIn()
+    }
+    
+    @IBAction func didTapClockOut(_ sender: UIButton) {
+        self.presenter?.getClockOut()
+    }
+    
+    func showSuccessAlert(message: String) {
+        let alertController = UIAlertController(title: "Success",
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .cancel,
+                                     handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func changeBackgroundColor(color: UIColor) {
+        DispatchQueue.main.async {
+            self.view.backgroundColor = color
+        }
+    }
+}
+
+extension UIColor {
+    public func named(_ name: String) -> UIColor? {
+        let allColors: [String: UIColor] = [
+            "red": .red,
+            "green": .green,
+            "white": .white,
+            "secondarySystemBackground": .secondarySystemBackground
+        ]
+        let cleanedName = name.replacingOccurrences(of: " ", with: "")
+        return allColors[cleanedName]
     }
 }
 

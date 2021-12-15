@@ -20,6 +20,7 @@ class LoginPageInteractor: LoginPageInteractorProtocol {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] result, error in
             self?.presenter?.notifyErrorAlert(error: error)
             UserDefaults.standard.set(true, forKey: "checkLogin")
+            UserDefaults.standard.set(email, forKey: "username")
             print("signed in")
             self?.presenter?.notifyViewRouteMainPage()
         })

@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Wireframe -
 protocol MainPageWireframeProtocol: class {
@@ -17,12 +18,18 @@ protocol MainPageWireframeProtocol: class {
 //MARK: Presenter -
 protocol MainPagePresenterProtocol: class {
     func getDateTime()
+    func getClockIn()
+    func getClockOut()
+    func notifySuccessAlert(message: String)
+    func getBackGroundColor(color: UIColor)
 }
 
 //MARK: Interactor -
 protocol MainPageInteractorProtocol: class {
 
     var presenter: MainPagePresenterProtocol?  { get set }
+    func setClockIn()
+    func setClockOut()
 }
 
 //MARK: View -
@@ -30,4 +37,6 @@ protocol MainPageViewProtocol: class {
 
     var presenter: MainPagePresenterProtocol?  { get set }
     func showDateTime(currentDate: String, currentTime: String)
+    func showSuccessAlert(message: String)
+    func changeBackgroundColor(color: UIColor)
 }
