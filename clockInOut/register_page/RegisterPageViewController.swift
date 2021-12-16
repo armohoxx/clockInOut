@@ -23,16 +23,20 @@ class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
     @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var buttonSignUp: UIButton!
     @IBOutlet weak var buttonCancel: UIButton!
+    @IBOutlet weak var navBarSignUp: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Sign Up"
+        
         if #available(iOS 13.0, *) {
-            navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
+            navBarSignUp.barTintColor = .secondarySystemBackground
         } else {
-            navigationController?.navigationBar.backgroundColor = .white
+            navBarSignUp.barTintColor = .white
         }
+        
+        navBarSignUp.delegate = self
     }
     
     @IBAction func didTapSignUp(_ sender: UIButton) {
@@ -116,4 +120,11 @@ class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
         }
     }
     
+}
+
+extension RegisterPageViewController: UINavigationBarDelegate {
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
 }

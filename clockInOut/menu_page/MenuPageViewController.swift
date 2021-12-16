@@ -16,17 +16,19 @@ class MenuPageViewController: UIViewController, MenuPageViewProtocol {
     var menuListValue: [MenuList] = [ MenuList(menuList: "Profile", menuImage: UIImage(systemName: "person.circle.fill")!), MenuList(menuList: "Logout", menuImage: UIImage(systemName: "rectangle.portrait.and.arrow.right.fill")!)]
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navBarMenu: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Menu"
         if #available(iOS 13.0, *) {
-            navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
+            navBarMenu.barTintColor = .secondarySystemBackground
         } else {
-            navigationController?.navigationBar.backgroundColor = .white
+            navBarMenu.barTintColor = .white
         }
         
+        navBarMenu.delegate = self
         tableView.register(MenuTableViewCell.nib(), forCellReuseIdentifier: "MenuTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -72,5 +74,12 @@ extension MenuPageViewController: UITableViewDataSource {
         cell.configure(with: menuListValue[indexPath.item])
         
         return cell
+    }
+}
+
+extension MenuPageViewController: UINavigationBarDelegate {
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }

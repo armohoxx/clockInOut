@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +13,7 @@
                 <outlet property="buttonLogin" destination="swH-rh-85W" id="4mS-7t-ghD"/>
                 <outlet property="buttonRegister" destination="9Xo-Qm-hOZ" id="qoM-Fd-Khu"/>
                 <outlet property="emailField" destination="ba8-eD-RUD" id="NEd-Kd-LY4"/>
+                <outlet property="navBarLogin" destination="n84-dX-UHT" id="1RU-09-lG0"/>
                 <outlet property="passwordField" destination="Esy-gR-QgU" id="obE-aD-ut6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -39,6 +41,7 @@
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" link="YES"/>
                             </accessibility>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -57,6 +60,7 @@
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" link="YES"/>
                             </accessibility>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
@@ -93,12 +97,25 @@
                         </button>
                     </subviews>
                 </stackView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n84-dX-UHT">
+                    <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="WxK-rQ-V81"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Login" id="UQ6-fp-grx"/>
+                    </items>
+                </navigationBar>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="ObR-Iz-BTP"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Rex-Sh-k33" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CfU-U4-0Ck"/>
                 <constraint firstItem="Rex-Sh-k33" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="GCP-ss-Ag1"/>
+                <constraint firstItem="n84-dX-UHT" firstAttribute="top" secondItem="ObR-Iz-BTP" secondAttribute="top" id="GVx-no-bYQ"/>
                 <constraint firstAttribute="trailing" secondItem="Rex-Sh-k33" secondAttribute="trailing" constant="50" id="TYe-bx-BVd"/>
+                <constraint firstItem="n84-dX-UHT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fRx-XE-7AD"/>
+                <constraint firstItem="n84-dX-UHT" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="hnX-ai-AI0"/>
                 <constraint firstItem="Rex-Sh-k33" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="i5q-pN-8wk"/>
             </constraints>
             <point key="canvasLocation" x="131.77570093457942" y="130.23758099352054"/>

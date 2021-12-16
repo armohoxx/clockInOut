@@ -63,6 +63,6 @@ class LoginPageRouter: LoginPageWireframeProtocol {
         interactor.presenter = presenter
         router.viewController = view
         
-        return UINavigationController(rootViewController: view)
+        return view
     }
 }

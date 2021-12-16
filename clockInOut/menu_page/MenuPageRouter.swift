@@ -32,6 +32,6 @@ class MenuPageRouter: MenuPageWireframeProtocol {
         interactor.presenter = presenter
         router.viewController = view
         
-        return UINavigationController(rootViewController: view)
+        return view
     }
 }

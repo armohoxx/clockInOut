@@ -21,16 +21,16 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
     @IBOutlet weak var buttonForgetPassword: UIButton!
     @IBOutlet weak var buttonRegister: UIButton!
     @IBOutlet weak var buttonLogin: UIButton!
-    
+    @IBOutlet weak var navBarLogin: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Login"
         if #available(iOS 13.0, *) {
-            navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
+            navBarLogin.barTintColor = .secondarySystemBackground
         } else {
-            navigationController?.navigationBar.backgroundColor = .white
+            navBarLogin.barTintColor = .white
         }
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -38,6 +38,7 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
         backgroundImage.contentMode = .scaleAspectFill
 
         self.view.insertSubview(backgroundImage, at: 0)
+        navBarLogin.delegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -143,4 +144,11 @@ extension LoginPageViewController: UITextFieldDelegate {
         return true
     }
 
+}
+
+extension LoginPageViewController: UINavigationBarDelegate {
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
 }
