@@ -12,7 +12,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseRemoteConfig
-import simd
 
 class LoginPageInteractor: LoginPageInteractorProtocol {
 

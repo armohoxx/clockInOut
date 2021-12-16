@@ -49,8 +49,9 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
         } else {
             navBarLogin.barTintColor = .white
         }
-    
+        
         navBarLogin.delegate = self
+        self.presenter?.getFetchValue()
     }
     
     func updateBackground(newBackground: Bool) {

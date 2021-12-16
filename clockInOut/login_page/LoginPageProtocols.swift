@@ -24,6 +24,7 @@ protocol LoginPagePresenterProtocol: class {
     func notifyErrorAlert(error: Error?)
     func notifyResetPassword(email: String)
     func notifyFetchValue(newBackground: Bool)
+    func getFetchValue()
 }
 
 //MARK: Interactor -
@@ -31,6 +32,7 @@ protocol LoginPageInteractorProtocol: class {
     var presenter: LoginPagePresenterProtocol?  { get set }
     func checkLogin(email: String, password: String)
     func resetPassword(email: String)
+    func fetchValue()
 }
 
 //MARK: View -

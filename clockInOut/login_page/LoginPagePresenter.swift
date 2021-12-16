@@ -49,4 +49,8 @@ class LoginPagePresenter: LoginPagePresenterProtocol {
     func notifyFetchValue(newBackground: Bool) {
         self.view?.updateBackground(newBackground: newBackground)
     }
+    
+    func getFetchValue() {
+        self.interactor?.fetchValue()
+    }
 }
