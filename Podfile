@@ -16,7 +16,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Messaging'
 pod 'Firebase/Analytics'
 pod 'Firebase/Firestore'
-
+pod 'Firebase/RemoteConfig'
   # Optionally, include the Swift extensions if you're using Swift.
 pod 'FirebaseFirestoreSwift'
 

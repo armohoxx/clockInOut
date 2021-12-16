@@ -11,6 +11,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseRemoteConfig
 
 class LoginPageViewController: UIViewController, LoginPageViewProtocol {
 
@@ -23,6 +24,22 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var navBarLogin: UINavigationBar!
     
+    var defaultsImage: UIImageView = {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background3")
+        backgroundImage.contentMode = .scaleAspectFill
+        
+        return backgroundImage
+    }()
+    
+    var updatedImages: UIImageView = {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background2")
+        backgroundImage.contentMode = .scaleAspectFill
+        
+        return backgroundImage
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,13 +49,22 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
         } else {
             navBarLogin.barTintColor = .white
         }
-        
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "background3")
-        backgroundImage.contentMode = .scaleAspectFill
-
-        self.view.insertSubview(backgroundImage, at: 0)
+    
         navBarLogin.delegate = self
+    }
+    
+    func updateBackground(newBackground: Bool) {
+        if newBackground == false {
+            DispatchQueue.main.async {
+                print("----------------test false----------------")
+                self.view.insertSubview(self.defaultsImage, at: 0)
+            }
+        } else {
+            DispatchQueue.main.async {
+                print("----------------test true----------------")
+                self.view.insertSubview(self.updatedImages, at: 0)
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

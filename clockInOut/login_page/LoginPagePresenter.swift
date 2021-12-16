@@ -45,4 +45,8 @@ class LoginPagePresenter: LoginPagePresenterProtocol {
     func notifyErrorAlert(error: Error?) {
         self.view?.showErrorAlert(error: error)
     }
+    
+    func notifyFetchValue(newBackground: Bool) {
+        self.view?.updateBackground(newBackground: newBackground)
+    }
 }

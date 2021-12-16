@@ -11,10 +11,13 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseRemoteConfig
+import simd
 
 class LoginPageInteractor: LoginPageInteractorProtocol {
 
     weak var presenter: LoginPagePresenterProtocol?
+    private let remoteConfig = RemoteConfig.remoteConfig()
     
     func checkLogin(email: String, password: String) {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] result, error in
@@ -34,5 +37,40 @@ class LoginPageInteractor: LoginPageInteractorProtocol {
                 self.presenter?.notifySuccessResetAlert()
             }
         }
+    }
+    
+    func fetchValue() {
+        let defaults: [String: NSObject] = [
+            "shows_new_background": false as NSObject
+        ]
+        
+        remoteConfig.setDefaults(defaults)
+        
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        
+        let cachedValue = self.remoteConfig.configValue(forKey: "shows_new_background").boolValue
+        self.presenter?.notifyFetchValue(newBackground: cachedValue)
+        
+        self.remoteConfig.fetch(withExpirationDuration: 0, completionHandler: { status, error in
+            if status == .success, error == nil {
+                self.remoteConfig.activate(completionHandler: { error in
+                    guard error == nil else {
+                        return
+                    }
+                    
+                    let value = self.remoteConfig.configValue(forKey: "shows_new_background").boolValue
+                    
+                    print("---------- \(value)")
+                    
+                    DispatchQueue.main.async {
+                        self.presenter?.notifyFetchValue(newBackground: value)
+                    }
+                })
+            } else {
+                print("Someting Wrong")
+            }
+        })
     }
 }
