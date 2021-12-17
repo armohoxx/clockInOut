@@ -29,5 +29,8 @@ class MenuPagePresenter: MenuPagePresenterProtocol {
     func notifyLogout() {
         self.interactor?.doLogout()
     }
-
+    
+    func notifyRouteProfile() {
+        self.router.routeToProfile()
+    }
 }

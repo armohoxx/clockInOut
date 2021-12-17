@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfilePageViewController" customModule="clockInOut" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonChangePassword" destination="jKf-da-oGM" id="urm-nb-M5a"/>
+                <outlet property="buttonDeleteAccount" destination="7Au-cc-Mix" id="2Sq-Uw-YLU"/>
+                <outlet property="firstNameField" destination="sEg-8J-aZb" id="Tmj-0a-8la"/>
+                <outlet property="lastNameField" destination="b7Q-pF-NZU" id="dD1-UW-eaw"/>
+                <outlet property="navBarProfile" destination="93F-45-cuv" id="kxS-VV-NmO"/>
+                <outlet property="uidField" destination="1JJ-yC-pUC" id="lGi-V0-mPy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93F-45-cuv">
+                    <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="E5o-9z-CU5"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Profile" id="bKY-W7-ZcV"/>
+                    </items>
+                </navigationBar>
+                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uwt-QN-bDP">
+                    <rect key="frame" x="84" y="280.66666666666669" width="260" height="365.00000000000006"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obd-rX-AIG">
+                            <rect key="frame" x="0.0" y="0.0" width="260" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEg-8J-aZb">
+                            <rect key="frame" x="0.0" y="40.333333333333314" width="260" height="34"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9p-Bk-U8m">
+                            <rect key="frame" x="0.0" y="94.333333333333314" width="260" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7Q-pF-NZU">
+                            <rect key="frame" x="0.0" y="134.66666666666663" width="260" height="34"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBw-zd-gQd">
+                            <rect key="frame" x="0.0" y="188.66666666666663" width="260" height="20.333333333333343"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-yC-pUC">
+                            <rect key="frame" x="0.0" y="229" width="260" height="34"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKf-da-oGM">
+                            <rect key="frame" x="0.0" y="282.99999999999994" width="260" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Change password"/>
+                            <connections>
+                                <action selector="didTapChangePassword:" destination="-1" eventType="touchUpInside" id="3sr-28-AYn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Au-cc-Mix">
+                            <rect key="frame" x="0.0" y="333.99999999999994" width="260" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Delete account"/>
+                            <connections>
+                                <action selector="didTapDeleteAccount:" destination="-1" eventType="touchUpInside" id="nfx-I9-Zst"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="W8z-dz-hBd"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Tcs-E8-sSk"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="93F-45-cuv" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="18F-Iw-eAV"/>
+                <constraint firstItem="Uwt-QN-bDP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Sk-zP-BXt"/>
+                <constraint firstItem="Uwt-QN-bDP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Vte-eH-Mcm"/>
+                <constraint firstItem="93F-45-cuv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gTi-ed-8ib"/>
+                <constraint firstItem="93F-45-cuv" firstAttribute="top" secondItem="Tcs-E8-sSk" secondAttribute="top" id="nEb-93-0Kc"/>
+            </constraints>
+            <point key="canvasLocation" x="133.17757009345794" y="116.63066954643629"/>
+        </view>
+    </objects>
+</document>

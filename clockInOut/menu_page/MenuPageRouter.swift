@@ -21,6 +21,16 @@ class MenuPageRouter: MenuPageWireframeProtocol {
         self.viewController?.present(loginPage, animated: true, completion: nil)
     }
     
+    func routeToProfile() {
+        let profilePageNavigator = ProfilePageRouter.createModule()
+        
+        profilePageNavigator.modalPresentationStyle = .fullScreen
+        self.viewController?.present(profilePageNavigator, animated: true, completion: nil)
+        
+//        profilePageNavigator.modalPresentationStyle = .fullScreen
+//        self.viewController?.navigationController?.pushViewController(profilePageNavigator, animated: true)
+    }
+    
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = MenuPageViewController(nibName: nil, bundle: nil)

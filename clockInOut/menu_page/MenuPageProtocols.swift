@@ -13,12 +13,14 @@ import Foundation
 //MARK: Wireframe -
 protocol MenuPageWireframeProtocol: class {
     func routeToLoginPage()
+    func routeToProfile()
 }
 //MARK: Presenter -
 protocol MenuPagePresenterProtocol: class {
     
     func notifyRouteLogin()
     func notifyLogout()
+    func notifyRouteProfile()
 }
 
 //MARK: Interactor -

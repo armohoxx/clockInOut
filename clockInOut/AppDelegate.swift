@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
+          // For iOS >= 10 display notification (sent via APNS)
           UNUserNotificationCenter.current().delegate = self
 
           let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -34,8 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler: { _, _ in }
           )
         } else {
+          // For iOS < 10 display notification (sent via APNS)
           let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+          UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
           application.registerUserNotificationSettings(settings)
         }
         
@@ -66,7 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-      
+        
+        //set device token
         Messaging.messaging().apnsToken = deviceToken
     }
     
@@ -93,6 +95,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate : MessagingDelegate {
+    
+    //get device token
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
       print("Firebase registration token: \(String(describing: fcmToken))")
 

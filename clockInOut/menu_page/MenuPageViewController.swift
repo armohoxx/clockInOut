@@ -57,8 +57,10 @@ extension MenuPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if menuListValue[indexPath.item].menuList == "Logout" {
             self.showLogoutAlert()
+        } else if menuListValue[indexPath.item].menuList == "Profile" {
+            self.presenter?.notifyRouteProfile()
         } else {
-            
+            print("Someting Wrong")
         }
     }
 }

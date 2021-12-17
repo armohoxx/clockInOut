@@ -54,6 +54,7 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
         self.presenter?.getFetchValue()
     }
     
+    //change background via value get from remote config
     func updateBackground(newBackground: Bool) {
         if newBackground == false {
             DispatchQueue.main.async {

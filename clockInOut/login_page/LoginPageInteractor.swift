@@ -16,9 +16,12 @@ import FirebaseRemoteConfig
 class LoginPageInteractor: LoginPageInteractorProtocol {
 
     weak var presenter: LoginPagePresenterProtocol?
+    
+    //call remote config
     private let remoteConfig = RemoteConfig.remoteConfig()
     
     func checkLogin(email: String, password: String) {
+        //Login via firebase authtication
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] result, error in
             self?.presenter?.notifyErrorAlert(error: error)
             UserDefaults.standard.set(true, forKey: "checkLogin")
@@ -29,6 +32,7 @@ class LoginPageInteractor: LoginPageInteractorProtocol {
     }
     
     func resetPassword(email: String) {
+        //reset password via email and send email to reset
         FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
                 self.presenter?.notifyErrorAlert(error: error)
@@ -43,15 +47,18 @@ class LoginPageInteractor: LoginPageInteractorProtocol {
             "shows_new_background": false as NSObject
         ]
         
+        //set defaults value to remote config
         remoteConfig.setDefaults(defaults)
         
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
         
+        //set defaults background via config from remote config
         let cachedValue = self.remoteConfig.configValue(forKey: "shows_new_background").boolValue
         self.presenter?.notifyFetchValue(newBackground: cachedValue)
         
+        //get config from remote config exp = 0
         self.remoteConfig.fetch(withExpirationDuration: 0, completionHandler: { status, error in
             if status == .success, error == nil {
                 self.remoteConfig.activate(completionHandler: { error in

@@ -24,6 +24,8 @@ class LaunchPagePresenter: LaunchPagePresenterProtocol {
     
     func notifyRouteLoginPage() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            
+            //use UserDefaults to make keep login
             if UserDefaults.standard.bool(forKey: "checkLogin") == false {
                 self.router.routeToLogin()
             } else {

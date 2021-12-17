@@ -16,6 +16,7 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
 
     weak var presenter: RegisterPagePresenterProtocol?
     
+    //create user via firebase authtication
     func createUser(firstName: String, lastName: String, email: String, password: String) {
         
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
@@ -23,6 +24,8 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
             if (error != nil) {
                 self?.presenter?.notifyErrorCreateUser(error: error)
             } else {
+                
+                //keep firstname, lastname and uid to firststore
                 let db = Firestore.firestore()
                 
                 db.collection("user").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid]) {
