@@ -53,4 +53,19 @@ class ProfilePageInteractor: ProfilePageInteractorProtocol {
         }
     }
     
+    func deleteUser(confirmDelete: String) {
+        let user = Auth.auth().currentUser
+        let confirmStringToDelete = "Confirm Delete"
+        if confirmStringToDelete == confirmDelete {
+            user?.delete { error in
+              if let error = error {
+                  self.presenter?.notifyErrorAlert(error: error)
+              } else {
+                  self.presenter?.notifySuccessAlert(message: "Delete Account Success")
+              }
+            }
+        } else {
+            self.presenter?.notifyErrorAlert(error: "Please enter correct information" as? Error)
+        }
+    }
 }

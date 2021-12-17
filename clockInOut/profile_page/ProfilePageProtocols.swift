@@ -22,6 +22,7 @@ protocol ProfilePagePresenterProtocol: class {
     func notifyDataFromFirestore()
     func getDataFromFirestore(firstname: String, lastname: String, uid: String)
     func notifyResetPassword(email: String)
+    func notifyConfirmDelete(confirmDelete: String)
     func notifySuccessAlert(message: String)
     func notifyErrorAlert(error: Error?)
 }
@@ -32,6 +33,7 @@ protocol ProfilePageInteractorProtocol: class {
     var presenter: ProfilePagePresenterProtocol?  { get set }
     func setDataFromFirestore()
     func resetPassword(email: String)
+    func deleteUser(confirmDelete: String)
 }
 
 //MARK: View -

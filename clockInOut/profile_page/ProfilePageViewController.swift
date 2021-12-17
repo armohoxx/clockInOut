@@ -47,7 +47,7 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
     }
     
     @IBAction func didTapDeleteAccount(_ sender: UIButton) {
-        
+        self.showConfirmDeleteAlert()
     }
     
     func showUserData(firstname: String, lastname: String, uid: String) {
@@ -108,6 +108,34 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
             field.placeholder = "Please enter your email"
             field.returnKeyType = .continue
             field.keyboardType = .emailAddress
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showConfirmDeleteAlert() {
+        let alertController = UIAlertController(title: "Confirm Delete",
+                                                message: #"Please fill "Confirm Delete" "#,
+                                                preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let confirmAction = UIAlertAction(title: "Continue", style: .default, handler: { _ in
+            guard let fieldConfirmDelete = alertController.textFields, fieldConfirmDelete.count == 1 else {
+                return
+            }
+            
+            let confirmDeleteField = fieldConfirmDelete[0]
+            
+            self.presenter?.notifyConfirmDelete(confirmDelete: confirmDeleteField.text!)
+        })
+        
+        alertController.addTextField { field in
+            field.returnKeyType = .continue
+            field.keyboardType = .default
         }
         
         alertController.addAction(cancelAction)

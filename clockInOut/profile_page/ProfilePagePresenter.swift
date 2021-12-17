@@ -38,6 +38,10 @@ class ProfilePagePresenter: ProfilePagePresenterProtocol {
         self.interactor?.resetPassword(email: email)
     }
     
+    func notifyConfirmDelete(confirmDelete: String) {
+        self.interactor?.deleteUser(confirmDelete: confirmDelete)
+    }
+    
     func notifySuccessAlert(message: String) {
         self.view?.showSuccessAlert(message: message)
     }

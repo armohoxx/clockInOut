@@ -58,12 +58,10 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
     func updateBackground(newBackground: Bool) {
         if newBackground == false {
             DispatchQueue.main.async {
-                print("----------------test false----------------")
                 self.view.insertSubview(self.defaultsImage, at: 0)
             }
         } else {
             DispatchQueue.main.async {
-                print("----------------test true----------------")
                 self.view.insertSubview(self.updatedImages, at: 0)
             }
         }
