@@ -58,14 +58,29 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
         }
     }
     
-    func showSuccessAlert(message: String) {
-        let alertController = UIAlertController(title: "Success",
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK",
                                          style: .cancel,
                                          handler: nil)
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showDeleteSuccessAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .default,
+                                     handler: { _ in
+            self.presenter?.getLogout()
+        })
         
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
@@ -118,7 +133,7 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
     
     func showConfirmDeleteAlert() {
         let alertController = UIAlertController(title: "Confirm Delete",
-                                                message: #"Please fill "Confirm Delete" "#,
+                                                message: #"Please fill "ConfirmDelete" "#,
                                                 preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

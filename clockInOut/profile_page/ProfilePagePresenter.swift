@@ -26,6 +26,10 @@ class ProfilePagePresenter: ProfilePagePresenterProtocol {
         self.router.backToMenu()
     }
     
+    func notifyRouteLogin() {
+        self.router.routeToLoginPage()
+    }
+    
     func notifyDataFromFirestore() {
         self.interactor?.setDataFromFirestore()
     }
@@ -42,12 +46,20 @@ class ProfilePagePresenter: ProfilePagePresenterProtocol {
         self.interactor?.deleteUser(confirmDelete: confirmDelete)
     }
     
-    func notifySuccessAlert(message: String) {
-        self.view?.showSuccessAlert(message: message)
+    func notifyAlert(title:String, message: String) {
+        self.view?.showAlert(title: title, message: message)
+    }
+    
+    func notifyDeleteSuccessAlert(title:String, message: String) {
+        self.view?.showDeleteSuccessAlert(title: title, message: message)
     }
     
     func notifyErrorAlert(error: Error?) {
         self.view?.showErrorAlert(error: error)
+    }
+    
+    func getLogout() {
+        self.interactor?.setLogoutAfterDeleteUserData()
     }
 
 }

@@ -14,6 +14,7 @@ import Foundation
 protocol ProfilePageWireframeProtocol: class {
     
     func backToMenu()
+    func routeToLoginPage()
 }
 //MARK: Presenter -
 protocol ProfilePagePresenterProtocol: class {
@@ -23,8 +24,11 @@ protocol ProfilePagePresenterProtocol: class {
     func getDataFromFirestore(firstname: String, lastname: String, uid: String)
     func notifyResetPassword(email: String)
     func notifyConfirmDelete(confirmDelete: String)
-    func notifySuccessAlert(message: String)
+    func notifyAlert(title:String, message: String)
     func notifyErrorAlert(error: Error?)
+    func notifyRouteLogin()
+    func notifyDeleteSuccessAlert(title:String, message: String)
+    func getLogout()
 }
 
 //MARK: Interactor -
@@ -34,6 +38,7 @@ protocol ProfilePageInteractorProtocol: class {
     func setDataFromFirestore()
     func resetPassword(email: String)
     func deleteUser(confirmDelete: String)
+    func setLogoutAfterDeleteUserData()
 }
 
 //MARK: View -
@@ -41,6 +46,7 @@ protocol ProfilePageViewProtocol: class {
 
     var presenter: ProfilePagePresenterProtocol?  { get set }
     func showUserData(firstname: String, lastname: String, uid: String)
-    func showSuccessAlert(message: String)
+    func showAlert(title: String, message: String)
+    func showDeleteSuccessAlert(title: String, message: String)
     func showErrorAlert(error: Error?)
 }
