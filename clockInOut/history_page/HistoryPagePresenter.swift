@@ -29,5 +29,9 @@ class HistoryPagePresenter: HistoryPagePresenterProtocol {
     func getHistoryData(dataHistory: [DataHistory]) {
         self.view?.showDataHistory(dataHistory: dataHistory)
     }
+    
+    func notifyErrorAlert(error: Error?) {
+        self.view?.showErrorAlert(error: error)
+    }
 
 }

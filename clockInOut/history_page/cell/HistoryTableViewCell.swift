@@ -18,8 +18,17 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     public func configure(with dataHistory: DataHistory) {
-        let dataHistoryAll = "Date/Time: \(dataHistory.date_time ?? "null data") Status: \(dataHistory.status ?? "")"
         
+        let timestamp = dataHistory.date_time
+        let date = timestamp?.dateValue()
+        let dayTimeFormatter = DateFormatter()
+        dayTimeFormatter.timeZone = TimeZone.current
+        dayTimeFormatter.dateFormat = "MMMM dd, yyyy - h:mm:ss a z"
+        let currentDayTime = dayTimeFormatter.string(from: date!)
+        
+        let dataHistoryAll = "Date/Time: \(currentDayTime)\n" +
+                             "Status: \(dataHistory.status ?? "")"
+
         textViewData.text = "\(dataHistoryAll)"
         textViewHeight.constant = self.textViewData.contentSize.height
     }

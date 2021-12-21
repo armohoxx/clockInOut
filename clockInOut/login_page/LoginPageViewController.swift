@@ -81,7 +81,7 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
     }
     
     @IBAction func didTapLogin(_ sender: UIButton) {
-        guard let email = emailField.text?.trimmingCharacters(in: .whitespaces), !email.isEmpty,
+        guard let email = emailField.text?.lowercased().trimmingCharacters(in: .whitespaces), !email.isEmpty,
               let password = passwordField.text?.trimmingCharacters(in: .whitespaces), !password.isEmpty else {
                   self.showEmptyAlert()
             return

@@ -22,22 +22,21 @@ class HistoryPageInteractor: HistoryPageInteractorProtocol {
     
     func setDataHistory() {
         guard let userEmail = Auth.auth().currentUser?.email else { return }
-        
+
         db.collection("log_clockinout")
             .whereField("user_email", isEqualTo: userEmail)
             .getDocuments() { (result, err) in
-          
               if let err = err {
-                  print("Error getting document: \(err)")
+                  self.presenter?.notifyErrorAlert(error: err)
               } else {
-                
+                 
                   for document in result!.documents {
                       let docData = document.data()
                       do {
                           self.dataHistory = try DataHistory.init(map: docData)
                           self.dataHistoryArray.append(self.dataHistory!)
                       } catch {
-                         print("Someting Wrong")
+                          self.presenter?.notifyErrorAlert(error: err)
                       }
                   }
                   

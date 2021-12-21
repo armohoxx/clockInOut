@@ -42,6 +42,22 @@ class HistoryPageViewController: UIViewController, HistoryPageViewProtocol {
             self.tableView.reloadData()
         }
     }
+    
+    func showErrorAlert(error: Error?) {
+        guard error == nil else {
+            let alertController = UIAlertController(title: "Someting Wrong",
+                                                    message: "\(error!.localizedDescription)",
+                                                    preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK",
+                                             style: .cancel,
+                                             handler: nil)
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+    }
 
 }
 
