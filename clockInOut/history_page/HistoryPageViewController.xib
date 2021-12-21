@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryPageViewController" customModule="clockInOut" customModuleProvider="target">
+            <connections>
+                <outlet property="navBarHistory" destination="vRb-Qd-g4y" id="xOv-k7-die"/>
+                <outlet property="tableView" destination="6fd-hb-Hfz" id="kXb-YC-Iey"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRb-Qd-g4y">
+                    <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="bJi-rG-mtL"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="History" id="CFg-0f-0rL"/>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6fd-hb-Hfz">
+                    <rect key="frame" x="10" y="88" width="408" height="794"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="49S-ez-PPp"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6fd-hb-Hfz" firstAttribute="leading" secondItem="49S-ez-PPp" secondAttribute="leading" constant="10" id="3AC-Hy-0R8"/>
+                <constraint firstItem="vRb-Qd-g4y" firstAttribute="top" secondItem="49S-ez-PPp" secondAttribute="top" id="9YJ-Ti-rJc"/>
+                <constraint firstItem="6fd-hb-Hfz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BWI-y4-PcL"/>
+                <constraint firstItem="vRb-Qd-g4y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ju0-xj-Xq1"/>
+                <constraint firstItem="vRb-Qd-g4y" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="LTv-Qf-ZoR"/>
+                <constraint firstItem="49S-ez-PPp" firstAttribute="bottom" secondItem="6fd-hb-Hfz" secondAttribute="bottom" constant="10" id="cIt-8R-ZKl"/>
+                <constraint firstItem="6fd-hb-Hfz" firstAttribute="top" secondItem="vRb-Qd-g4y" secondAttribute="bottom" id="g3e-ms-wdR"/>
+                <constraint firstItem="49S-ez-PPp" firstAttribute="trailing" secondItem="6fd-hb-Hfz" secondAttribute="trailing" constant="10" id="iAS-bl-Oez"/>
+            </constraints>
+            <point key="canvasLocation" x="130" y="85"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

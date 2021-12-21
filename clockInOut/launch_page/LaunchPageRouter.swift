@@ -24,9 +24,11 @@ class LaunchPageRouter: LaunchPageWireframeProtocol {
     func tabBarViewController() {
         let viewControllerTabBar = UITabBarController()
         let viewControllerMainPage = MainPageRouter.createModule()
+        let viewControllerHistoryPage = HistoryPageRouter.createModule()
         let viewControllerMenuPage = MenuPageRouter.createModule()
         
         viewControllerMainPage.title = "Main"
+        viewControllerHistoryPage.title = "History"
         viewControllerMenuPage.title = "Menu"
         
         if #available(iOS 13.0, *) {
@@ -35,13 +37,15 @@ class LaunchPageRouter: LaunchPageWireframeProtocol {
             viewControllerTabBar.tabBar.backgroundColor = .white
         }
         
-        viewControllerTabBar.setViewControllers([viewControllerMainPage, viewControllerMenuPage], animated: false)
+        viewControllerTabBar.setViewControllers([viewControllerMainPage,
+                                                 viewControllerHistoryPage,
+                                                 viewControllerMenuPage], animated: false)
         
         guard let items = viewControllerTabBar.tabBar.items else {
             return
         }
         
-        let images = ["clock", "text.justify"]
+        let images = ["clock", "clock.arrow.circlepath","text.justify"]
         
         for x in 0..<items.count {
             items[x].image = UIImage(systemName: images[x])
