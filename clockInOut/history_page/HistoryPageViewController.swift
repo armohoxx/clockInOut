@@ -33,7 +33,17 @@ class HistoryPageViewController: UIViewController, HistoryPageViewProtocol {
         tableView.delegate = self
         tableView.dataSource = self
         navBarHistory.delegate = self
+        
         self.presenter?.notifyHistoryData()
+        self.presenter?.getNotiCenterSetup()
+    }
+    
+    @objc func didTapRefresh() {
+        self.dataHistory = []
+        DispatchQueue.main.async {
+            self.presenter?.notifyHistoryData()
+            self.tableView.reloadData()
+        }
     }
     
     func showDataHistory(dataHistory: [DataHistory]) {

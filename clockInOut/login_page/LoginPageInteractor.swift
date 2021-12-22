@@ -14,7 +14,7 @@ import FirebaseAuth
 import FirebaseRemoteConfig
 
 class LoginPageInteractor: LoginPageInteractorProtocol {
-
+    
     weak var presenter: LoginPagePresenterProtocol?
     
     //call remote config
@@ -27,6 +27,7 @@ class LoginPageInteractor: LoginPageInteractorProtocol {
             UserDefaults.standard.set(true, forKey: "checkLogin")
             UserDefaults.standard.set(email, forKey: "username")
             print("signed in")
+
             self?.presenter?.notifyViewRouteMainPage()
         })
     }

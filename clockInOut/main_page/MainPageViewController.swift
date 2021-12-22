@@ -53,10 +53,12 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
     }
     
     @IBAction func didTapClockIn(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Notification.Name("pushClockInOrOut"), object: nil)
         self.presenter?.getClockIn()
     }
     
     @IBAction func didTapClockOut(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Notification.Name("pushClockInOrOut"), object: nil)
         self.presenter?.getClockOut()
     }
     

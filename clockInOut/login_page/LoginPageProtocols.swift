@@ -37,7 +37,6 @@ protocol LoginPageInteractorProtocol: class {
 
 //MARK: View -
 protocol LoginPageViewProtocol: class {
-
     var presenter: LoginPagePresenterProtocol?  { get set }
     func showErrorAlert(error: Error?)
     func showSuccessResetAlert()

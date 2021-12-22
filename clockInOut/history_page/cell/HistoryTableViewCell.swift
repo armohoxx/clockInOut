@@ -24,7 +24,7 @@ class HistoryTableViewCell: UITableViewCell {
         let dayTimeFormatter = DateFormatter()
         dayTimeFormatter.timeZone = TimeZone.current
         dayTimeFormatter.dateFormat = "MMMM dd, yyyy - h:mm:ss a z"
-        let currentDayTime = dayTimeFormatter.string(from: date!)
+        let currentDayTime = dayTimeFormatter.string(from: date ?? Date())
         
         let dataHistoryAll = "Date/Time: \(currentDayTime)\n" +
                              "Status: \(dataHistory.status ?? "")"

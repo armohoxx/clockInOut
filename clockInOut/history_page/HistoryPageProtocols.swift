@@ -19,6 +19,7 @@ protocol HistoryPagePresenterProtocol: class {
     func notifyHistoryData()
     func getHistoryData(dataHistory: [DataHistory])
     func notifyErrorAlert(error: Error?)
+    func getNotiCenterSetup()
 }
 
 //MARK: Interactor -
@@ -26,6 +27,7 @@ protocol HistoryPageInteractorProtocol: class {
 
     var presenter: HistoryPagePresenterProtocol?  { get set }
     func setDataHistory()
+    func setNotificationCenter()
 }
 
 //MARK: View -

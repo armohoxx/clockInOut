@@ -33,5 +33,9 @@ class HistoryPagePresenter: HistoryPagePresenterProtocol {
     func notifyErrorAlert(error: Error?) {
         self.view?.showErrorAlert(error: error)
     }
+    
+    func getNotiCenterSetup() {
+        self.interactor?.setNotificationCenter()
+    }
 
 }

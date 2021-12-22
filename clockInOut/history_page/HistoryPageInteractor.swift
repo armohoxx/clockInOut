@@ -20,7 +20,15 @@ class HistoryPageInteractor: HistoryPageInteractorProtocol {
     var dataHistoryArray: [DataHistory] = []
     var dataHistory: DataHistory?
     
-    func setDataHistory() {
+    func setNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataHistory),
+                                               name: Notification.Name("pushClockInOrOut"), object: nil)
+    }
+    
+    @objc func setDataHistory() {
+        self.dataHistory = nil
+        self.dataHistoryArray = []
+        
         guard let userEmail = Auth.auth().currentUser?.email else { return }
 
         db.collection("log_clockinout")
