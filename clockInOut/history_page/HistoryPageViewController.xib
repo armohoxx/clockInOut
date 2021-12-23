@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryPageViewController" customModule="clockInOut" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="l4f-KJ-pFi" id="sDe-lh-OHl"/>
                 <outlet property="navBarHistory" destination="vRb-Qd-g4y" id="xOv-k7-die"/>
+                <outlet property="searchBarData" destination="dIJ-a5-PFH" id="7C9-og-U25"/>
                 <outlet property="tableView" destination="6fd-hb-Hfz" id="kXb-YC-Iey"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,16 +35,32 @@
                     <rect key="frame" x="10" y="88" width="408" height="794"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-KJ-pFi">
+                    <rect key="frame" x="204" y="453" width="20" height="20"/>
+                </activityIndicatorView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dIJ-a5-PFH">
+                    <rect key="frame" x="0.0" y="88" width="428" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="WjV-q5-vAq"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="49S-ez-PPp"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6fd-hb-Hfz" firstAttribute="leading" secondItem="49S-ez-PPp" secondAttribute="leading" constant="10" id="3AC-Hy-0R8"/>
                 <constraint firstItem="vRb-Qd-g4y" firstAttribute="top" secondItem="49S-ez-PPp" secondAttribute="top" id="9YJ-Ti-rJc"/>
+                <constraint firstItem="l4f-KJ-pFi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="A0Z-9X-ZWu"/>
                 <constraint firstItem="6fd-hb-Hfz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BWI-y4-PcL"/>
+                <constraint firstItem="l4f-KJ-pFi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E61-xz-3y7"/>
                 <constraint firstItem="vRb-Qd-g4y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ju0-xj-Xq1"/>
                 <constraint firstItem="vRb-Qd-g4y" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="LTv-Qf-ZoR"/>
+                <constraint firstItem="dIJ-a5-PFH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Pos-5W-2WJ"/>
+                <constraint firstItem="dIJ-a5-PFH" firstAttribute="trailing" secondItem="49S-ez-PPp" secondAttribute="trailing" id="Y7f-0q-iz5"/>
                 <constraint firstItem="49S-ez-PPp" firstAttribute="bottom" secondItem="6fd-hb-Hfz" secondAttribute="bottom" constant="10" id="cIt-8R-ZKl"/>
+                <constraint firstItem="dIJ-a5-PFH" firstAttribute="top" secondItem="vRb-Qd-g4y" secondAttribute="bottom" id="dEe-Ug-GXf"/>
+                <constraint firstItem="dIJ-a5-PFH" firstAttribute="leading" secondItem="49S-ez-PPp" secondAttribute="leading" id="f1A-oo-NGm"/>
                 <constraint firstItem="6fd-hb-Hfz" firstAttribute="top" secondItem="vRb-Qd-g4y" secondAttribute="bottom" id="g3e-ms-wdR"/>
                 <constraint firstItem="49S-ez-PPp" firstAttribute="trailing" secondItem="6fd-hb-Hfz" secondAttribute="trailing" constant="10" id="iAS-bl-Oez"/>
             </constraints>
