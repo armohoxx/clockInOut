@@ -23,11 +23,9 @@ class MenuPageRouter: MenuPageWireframeProtocol {
     
     func routeToProfile() {
         let profilePageNavigator = ProfilePageRouter.createModule()
-        
         profilePageNavigator.modalPresentationStyle = .fullScreen
         self.viewController?.present(profilePageNavigator, animated: true, completion: nil)
         
-//        profilePageNavigator.modalPresentationStyle = .fullScreen
 //        self.viewController?.navigationController?.pushViewController(profilePageNavigator, animated: true)
     }
     
@@ -42,6 +40,6 @@ class MenuPageRouter: MenuPageWireframeProtocol {
         interactor.presenter = presenter
         router.viewController = view
         
-        return view
+        return UINavigationController(rootViewController: view)
     }
 }

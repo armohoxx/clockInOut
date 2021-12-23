@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +13,6 @@
                 <outlet property="buttonDeleteAccount" destination="7Au-cc-Mix" id="2Sq-Uw-YLU"/>
                 <outlet property="firstNameField" destination="sEg-8J-aZb" id="Tmj-0a-8la"/>
                 <outlet property="lastNameField" destination="b7Q-pF-NZU" id="dD1-UW-eaw"/>
-                <outlet property="navBarProfile" destination="93F-45-cuv" id="kxS-VV-NmO"/>
                 <outlet property="uidField" destination="1JJ-yC-pUC" id="lGi-V0-mPy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,15 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93F-45-cuv">
-                    <rect key="frame" x="0.0" y="44" width="428" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="E5o-9z-CU5"/>
-                    </constraints>
-                    <items>
-                        <navigationItem title="Profile" id="bKY-W7-ZcV"/>
-                    </items>
-                </navigationBar>
                 <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uwt-QN-bDP">
                     <rect key="frame" x="84" y="280.66666666666669" width="260" height="365.00000000000006"/>
                     <subviews>
@@ -96,16 +86,17 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="Tcs-E8-sSk"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="93F-45-cuv" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="18F-Iw-eAV"/>
                 <constraint firstItem="Uwt-QN-bDP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Sk-zP-BXt"/>
                 <constraint firstItem="Uwt-QN-bDP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Vte-eH-Mcm"/>
-                <constraint firstItem="93F-45-cuv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gTi-ed-8ib"/>
-                <constraint firstItem="93F-45-cuv" firstAttribute="top" secondItem="Tcs-E8-sSk" secondAttribute="top" id="nEb-93-0Kc"/>
             </constraints>
             <point key="canvasLocation" x="133.17757009345794" y="116.63066954643629"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

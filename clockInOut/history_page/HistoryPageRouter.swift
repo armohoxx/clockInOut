@@ -25,6 +25,6 @@ class HistoryPageRouter: HistoryPageWireframeProtocol {
         interactor.presenter = presenter
         router.viewController = view
         
-        return view
+        return UINavigationController(rootViewController: view)
     }
 }

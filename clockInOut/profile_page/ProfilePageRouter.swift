@@ -35,7 +35,7 @@ class ProfilePageRouter: ProfilePageWireframeProtocol {
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
-        
-        return view
+     
+        return UINavigationController(rootViewController: view)
     }
 }

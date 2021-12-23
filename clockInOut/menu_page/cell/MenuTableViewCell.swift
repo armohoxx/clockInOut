@@ -16,7 +16,6 @@ class MenuTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     public func configure(with menuListValue: MenuList) {

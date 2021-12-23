@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window? = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.rootViewController = assignViewController()
         self.window?.makeKeyAndVisible()
+        self.customizeNavBar()
         
         FirebaseApp.configure()
         
@@ -49,6 +50,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func assignViewController() -> UIViewController {
         return LaunchPageRouter.createModule()
+    }
+    
+    func customizeNavBar() {
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .secondarySystemBackground
+            UINavigationBar.appearance().standardAppearance = appearance;
+            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
+            UINavigationBar.appearance().isTranslucent = true
+        } else {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .white
+            UINavigationBar.appearance().standardAppearance = appearance;
+            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
+            UINavigationBar.appearance().isTranslucent = true
+        }
     }
 
     // MARK: UISceneSession Lifecycle

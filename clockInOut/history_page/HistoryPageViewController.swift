@@ -17,32 +17,24 @@ class HistoryPageViewController: UIViewController, HistoryPageViewProtocol {
     var searching = false
     var searchingData = [DataHistory]()
     var dataHistory: [DataHistory] = []
-
-    @IBOutlet weak var navBarHistory: UINavigationBar!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var searchBarData: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "History"
-        
-        if #available(iOS 13.0, *) {
-            navBarHistory.barTintColor = .secondarySystemBackground
-        } else {
-            navBarHistory.barTintColor = .white
-        }
-        
+
         configureSearchController()
         tableView.register(HistoryTableViewCell.nib(), forCellReuseIdentifier: "HistoryTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        navBarHistory.delegate = self
         self.showLoader()
         self.showTableHistory()
         self.presenter?.notifyHistoryData()
         self.presenter?.getNotiCenterSetup()
+        
     }
     
     private func configureSearchController() {
@@ -93,15 +85,6 @@ class HistoryPageViewController: UIViewController, HistoryPageViewProtocol {
         }
     }
 
-}
-
-extension HistoryPageViewController: UINavigationBarDelegate {
-    
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-    
-    
 }
 
 extension HistoryPageViewController: UITableViewDelegate {

@@ -14,7 +14,6 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
 
 	var presenter: ProfilePagePresenterProtocol?
     
-    @IBOutlet weak var navBarProfile: UINavigationBar!
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var uidField: UITextField!
@@ -24,16 +23,10 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 13.0, *) {
-            navBarProfile.barTintColor = .secondarySystemBackground
-        } else {
-            navBarProfile.barTintColor = .white
-        }
+        title = "Profile"
         
-        let navBarButton = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: #selector(didTapProfile))
-        
-        navBarProfile.delegate = self
-        navBarProfile.topItem?.leftBarButtonItem = navBarButton
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Back", style: .plain, target: self, action: #selector(didTapProfile))
         
         self.presenter?.notifyDataFromFirestore()
     }
@@ -157,12 +150,5 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
         alertController.addAction(confirmAction)
         
         self.present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension ProfilePageViewController: UINavigationBarDelegate {
-    
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
     }
 }

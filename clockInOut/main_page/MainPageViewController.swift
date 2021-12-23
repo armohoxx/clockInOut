@@ -19,20 +19,11 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var buttonClockIn: UIButton!
     @IBOutlet weak var buttonClockOut: UIButton!
-    @IBOutlet weak var navBarMenu: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Main"
         
-        if #available(iOS 13.0, *) {
-            navBarMenu.barTintColor = .secondarySystemBackground
-        } else {
-            navBarMenu.barTintColor = .white
-        }
-        
-        navBarMenu.delegate = self
         self.showLoader()
         self.view.backgroundColor = UIColor().named(UserDefaults.standard.string(forKey: "background_color") ?? "secondarySystemBackground")
         self.presenter?.getDateTime()
@@ -93,13 +84,6 @@ extension UIColor {
         ]
         let cleanedName = name.replacingOccurrences(of: " ", with: "")
         return allColors[cleanedName]
-    }
-}
-
-extension MainPageViewController: UINavigationBarDelegate {
-    
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
     }
 }
 
