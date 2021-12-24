@@ -21,13 +21,17 @@ class HistoryPageInteractor: HistoryPageInteractorProtocol {
     var dataHistory: DataHistory?
     
     func setNotificationCenter() {
+        //ตัวสังเกคการณ์ notification center
         NotificationCenter.default.addObserver(self, selector: #selector(setDataHistory),
-                                               name: Notification.Name("pushClockInOrOut"), object: nil)
+                                               name: Notification.Name("pushClockIn"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setDataHistory),
+                                               name: Notification.Name("pushClockOut"), object: nil)
     }
     
     @objc func setDataHistory() {
         self.dataHistory = nil
-        self.dataHistoryArray = []
+        self.dataHistoryArray.removeAll()
         
         guard let userEmail = Auth.auth().currentUser?.email else { return }
 

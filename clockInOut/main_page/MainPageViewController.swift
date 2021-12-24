@@ -44,12 +44,14 @@ class MainPageViewController: UIViewController, MainPageViewProtocol {
     }
     
     @IBAction func didTapClockIn(_ sender: UIButton) {
-        NotificationCenter.default.post(name: Notification.Name("pushClockInOrOut"), object: nil)
+        //เมื่อเกิดการคลิกให้ update History view
+        NotificationCenter.default.post(name: Notification.Name("pushClockIn"), object: nil)
         self.presenter?.getClockIn()
     }
     
     @IBAction func didTapClockOut(_ sender: UIButton) {
-        NotificationCenter.default.post(name: Notification.Name("pushClockInOrOut"), object: nil)
+        //เมื่อเกิดการคลิกให้ update History view
+        NotificationCenter.default.post(name: Notification.Name("pushClockOut"), object: nil)
         self.presenter?.getClockOut()
     }
     

@@ -11,6 +11,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class RegisterPageInteractor: RegisterPageInteractorProtocol {
 
@@ -20,6 +21,8 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
     func createUser(firstName: String, lastName: String, email: String, password: String) {
         
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
+            
+//            self?.uploadProfileImage(<#T##image: UIImage##UIImage#>, completion: <#T##((String?) -> ())##((String?) -> ())##(_ url: String?) -> ()#>)
             
             if (error != nil) {
                 self?.presenter?.notifyErrorCreateUser(error: error)
@@ -40,5 +43,10 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
                 }
             }
         })
+    }
+    
+    func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:String?)->())) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storageRef = Storage.storage().reference().child("user_images/\(uid)")
     }
 }

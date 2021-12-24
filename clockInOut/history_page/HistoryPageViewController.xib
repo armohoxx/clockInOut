@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,23 +20,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6fd-hb-Hfz">
-                    <rect key="frame" x="10" y="44" width="408" height="838"/>
+                    <rect key="frame" x="0.0" y="0.0" width="428" height="916"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-KJ-pFi">
                     <rect key="frame" x="204" y="453" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="49S-ez-PPp"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6fd-hb-Hfz" firstAttribute="leading" secondItem="49S-ez-PPp" secondAttribute="leading" constant="10" id="3AC-Hy-0R8"/>
+                <constraint firstItem="6fd-hb-Hfz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3AC-Hy-0R8"/>
                 <constraint firstItem="l4f-KJ-pFi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="A0Z-9X-ZWu"/>
                 <constraint firstItem="6fd-hb-Hfz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BWI-y4-PcL"/>
                 <constraint firstItem="l4f-KJ-pFi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E61-xz-3y7"/>
-                <constraint firstItem="6fd-hb-Hfz" firstAttribute="top" secondItem="49S-ez-PPp" secondAttribute="top" id="Mkj-hT-sgF"/>
-                <constraint firstItem="49S-ez-PPp" firstAttribute="bottom" secondItem="6fd-hb-Hfz" secondAttribute="bottom" constant="10" id="cIt-8R-ZKl"/>
-                <constraint firstItem="49S-ez-PPp" firstAttribute="trailing" secondItem="6fd-hb-Hfz" secondAttribute="trailing" constant="10" id="iAS-bl-Oez"/>
+                <constraint firstItem="6fd-hb-Hfz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mkj-hT-sgF"/>
+                <constraint firstAttribute="bottom" secondItem="6fd-hb-Hfz" secondAttribute="bottom" constant="10" id="cIt-8R-ZKl"/>
+                <constraint firstAttribute="trailing" secondItem="6fd-hb-Hfz" secondAttribute="trailing" id="iAS-bl-Oez"/>
             </constraints>
             <point key="canvasLocation" x="130" y="85"/>
         </view>

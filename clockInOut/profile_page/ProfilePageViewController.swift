@@ -13,22 +13,56 @@ import UIKit
 class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
 
 	var presenter: ProfilePagePresenterProtocol?
+    var imagePicker: UIImagePickerController!
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var uidField: UITextField!
     @IBOutlet weak var buttonChangePassword: UIButton!
     @IBOutlet weak var buttonDeleteAccount: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Profile"
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Back", style: .plain, target: self, action: #selector(didTapProfile))
-        
+        self.setUpImageTap()
         self.presenter?.notifyDataFromFirestore()
+    }
+    
+    func showImagePickerControlActionSheet() {
+        let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { (action) in
+            self.setUpImagePicker(sourceType: .photoLibrary)
+        }
+        let cameraAction = UIAlertAction(title: "Take from Camera", style: .default) { (action) in
+            self.setUpImagePicker(sourceType: .camera)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        AlertService.showAlert(style: .actionSheet, title: "Choose your image", message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func setUpImagePicker(sourceType: UIImagePickerController.SourceType) {
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func setUpImageTap() {
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(imageTap)
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        
+    }
+    
+    @objc func openImagePicker() {
+        self.showImagePickerControlActionSheet()
     }
     
     @objc func didTapProfile() {
@@ -150,5 +184,20 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
         alertController.addAction(confirmAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension ProfilePageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }

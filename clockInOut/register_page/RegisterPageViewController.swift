@@ -15,6 +15,7 @@ import FirebaseAuth
 class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
 
 	var presenter: RegisterPagePresenterProtocol?
+    var imagePicker: UIImagePickerController!
 
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -23,20 +24,46 @@ class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
     @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var buttonSignUp: UIButton!
     @IBOutlet weak var buttonCancel: UIButton!
-    @IBOutlet weak var navBarSignUp: UINavigationBar!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Sign Up"
         
-        if #available(iOS 13.0, *) {
-            navBarSignUp.barTintColor = .secondarySystemBackground
-        } else {
-            navBarSignUp.barTintColor = .white
+        self.setUpImageTap()
+    }
+    
+    func showImagePickerControlActionSheet() {
+        let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { (action) in
+            self.setUpImagePicker(sourceType: .photoLibrary)
         }
+        let cameraAction = UIAlertAction(title: "Take from Camera", style: .default) { (action) in
+            self.setUpImagePicker(sourceType: .camera)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        navBarSignUp.delegate = self
+        AlertService.showAlert(style: .actionSheet, title: "Choose your image", message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func setUpImagePicker(sourceType: UIImagePickerController.SourceType) {
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func setUpImageTap() {
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(imageTap)
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+        
+    }
+    
+    @objc func openImagePicker() {
+        self.showImagePickerControlActionSheet()
     }
     
     @IBAction func didTapSignUp(_ sender: UIButton) {
@@ -122,9 +149,17 @@ class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
     
 }
 
-extension RegisterPageViewController: UINavigationBarDelegate {
+extension RegisterPageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
     
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }

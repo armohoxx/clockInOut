@@ -49,25 +49,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func assignViewController() -> UIViewController {
-        return LaunchPageRouter.createModule()
+        return RegisterPageRouter.createModule()
     }
     
     func customizeNavBar() {
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        UINavigationBar.appearance().standardAppearance = appearance;
+        UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
+        UINavigationBar.appearance().isTranslucent = true
+        
         if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .secondarySystemBackground
-            UINavigationBar.appearance().standardAppearance = appearance;
-            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
-            UINavigationBar.appearance().isTranslucent = true
         } else {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .white
-            UINavigationBar.appearance().standardAppearance = appearance;
-            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
-            UINavigationBar.appearance().isTranslucent = true
         }
     }
 
