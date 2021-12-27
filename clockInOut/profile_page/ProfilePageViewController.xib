@@ -29,7 +29,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgT-tA-07s" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-clock-background" translatesAutoresizingMaskIntoConstraints="NO" id="whm-0t-vz4">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whm-0t-vz4">
                                     <rect key="frame" x="139" y="60" width="150" height="150"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="150" id="Jre-RU-Ecr"/>
@@ -133,7 +133,6 @@
         </view>
     </objects>
     <resources>
-        <image name="login-clock-background" width="800" height="1200"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

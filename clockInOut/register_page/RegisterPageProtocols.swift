@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Wireframe -
 protocol RegisterPageWireframeProtocol: class {
@@ -19,14 +20,14 @@ protocol RegisterPagePresenterProtocol: class {
     func notifyRouteToLogin()
     func notifyErrorCreateUser(error: Error?)
     func notifySuccessCreateUser()
-    func notifyCreatereateUser(firstName: String, lastName: String, email: String, password: String)
+    func notifyCreatereateUser(firstName: String, lastName: String, email: String, password: String, image_profile: UIImage?)
 }
 
 //MARK: Interactor -
 protocol RegisterPageInteractorProtocol: class {
 
     var presenter: RegisterPagePresenterProtocol?  { get set }
-    func createUser(firstName: String, lastName: String, email: String, password: String)
+    func createUser(firstName: String, lastName: String, email: String, password: String, image_profile: UIImage?)
 }
 
 //MARK: View -

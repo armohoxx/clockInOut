@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Wireframe -
 protocol ProfilePageWireframeProtocol: class {
@@ -29,6 +30,8 @@ protocol ProfilePagePresenterProtocol: class {
     func notifyRouteLogin()
     func notifyDeleteSuccessAlert(title:String, message: String)
     func getLogout()
+    func getProfileImage(image_profile: String)
+    func notifyProfileImage()
 }
 
 //MARK: Interactor -
@@ -39,6 +42,7 @@ protocol ProfilePageInteractorProtocol: class {
     func resetPassword(email: String)
     func deleteUser(confirmDelete: String)
     func setLogoutAfterDeleteUserData()
+    func dowloadProfileImage()
 }
 
 //MARK: View -
@@ -49,4 +53,5 @@ protocol ProfilePageViewProtocol: class {
     func showAlert(title: String, message: String)
     func showDeleteSuccessAlert(title: String, message: String)
     func showErrorAlert(error: Error?)
+    func showProfileImage(image_profile: String)
 }

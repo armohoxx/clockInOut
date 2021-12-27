@@ -31,7 +31,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mT-zG-RM7" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundClock" translatesAutoresizingMaskIntoConstraints="NO" id="ofE-cx-TZC">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_profile" translatesAutoresizingMaskIntoConstraints="NO" id="ofE-cx-TZC">
                                     <rect key="frame" x="139" y="60" width="150" height="150"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="05b-il-X3A"/>
@@ -166,7 +166,7 @@
         </view>
     </objects>
     <resources>
-        <image name="backgroundClock" width="384" height="512"/>
+        <image name="add_profile" width="128" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

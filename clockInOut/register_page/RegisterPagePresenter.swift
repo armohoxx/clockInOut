@@ -26,9 +26,9 @@ class RegisterPagePresenter: RegisterPagePresenterProtocol {
         self.router.routeToLogin()
     }
     
-    func notifyCreatereateUser(firstName: String, lastName: String, email: String, password: String) {
+    func notifyCreatereateUser(firstName: String, lastName: String, email: String, password: String, image_profile: UIImage?) {
         
-        self.interactor?.createUser(firstName: firstName, lastName: lastName, email: email, password: password)
+        self.interactor?.createUser(firstName: firstName, lastName: lastName, email: email, password: password, image_profile: image_profile)
         
     }
     

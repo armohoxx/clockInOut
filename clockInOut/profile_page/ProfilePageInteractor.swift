@@ -18,6 +18,7 @@ class ProfilePageInteractor: ProfilePageInteractorProtocol {
     let db = Firestore.firestore()
     var dataUser: DataUser?
     var dataUserArray: [DataUser] = []
+    var urlImagesFromFirestore: String = ""
     
     func setDataFromFirestore() {
         guard let userID = Auth.auth().currentUser?.uid else { return }
@@ -30,7 +31,6 @@ class ProfilePageInteractor: ProfilePageInteractorProtocol {
                 } else {
                     
                     for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
                         let firstname = document.data()["firstname"] as! String
                         let lastname = document.data()["lastname"] as! String
                         let uid = document.data()["uid"] as! String
@@ -104,6 +104,27 @@ class ProfilePageInteractor: ProfilePageInteractorProtocol {
         catch {
             print("Something went wrong")
         }
+    }
+    
+    func dowloadProfileImage() {
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        db.collection("images_profile")
+          .whereField("uid", isEqualTo: userUid)
+          .getDocuments() { (result, err) in
+              if let err = err {
+                  self.presenter?.notifyErrorAlert(error: err)
+              } else {
+                  
+                  for document in result!.documents {
+                      self.urlImagesFromFirestore = document.data()["imageUrl"] as! String
+                  }
+                  
+//                  print(self.urlImagesFromFirestore)
+                  self.presenter?.getProfileImage(image_profile: self.urlImagesFromFirestore)
+              }
+              
+          }
     }
     
 }

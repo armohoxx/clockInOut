@@ -71,7 +71,8 @@ class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
               let lastName = lastNameField.text, !lastName.isEmpty,
               let email = emailField.text?.trimmingCharacters(in: .whitespaces), !email.isEmpty,
               let password = passwordField.text?.trimmingCharacters(in: .whitespaces), !password.isEmpty,
-              let confirmPassword = confirmPasswordField.text?.trimmingCharacters(in: .whitespaces), !confirmPassword.isEmpty else {
+              let confirmPassword = confirmPasswordField.text?.trimmingCharacters(in: .whitespaces), !confirmPassword.isEmpty,
+              let profileImage = profileImageView.image else {
                   self.showEmptyAlert()
             return
         }
@@ -79,7 +80,7 @@ class RegisterPageViewController: UIViewController, RegisterPageViewProtocol {
         if (password != confirmPassword) {
             showConfirmPasswordAlert()
         } else {
-            self.presenter?.notifyCreatereateUser(firstName: firstName, lastName: lastName, email: email, password: password)
+            self.presenter?.notifyCreatereateUser(firstName: firstName, lastName: lastName, email: email, password: password, image_profile: profileImage)
         }
         
     }

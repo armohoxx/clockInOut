@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
 
@@ -30,6 +31,29 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
             title: "Back", style: .plain, target: self, action: #selector(didTapProfile))
         self.setUpImageTap()
         self.presenter?.notifyDataFromFirestore()
+        self.presenter?.notifyProfileImage()
+    }
+    
+    func showProfileImage(image_profile: String) {
+        
+        DispatchQueue.main.async {
+            if !image_profile.isEmpty {
+                guard let urlImageProfile = URL(string: image_profile) else { return }
+                
+                self.profileImageView.kf.setImage(with: urlImageProfile) { result in
+                    switch result {
+                    case .success(let value):
+                        print("get images \(value.source)")
+                        self.profileImageView.image = value.image
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            } else {
+                self.profileImageView.image = UIImage(named: "add_profile")
+            }
+          
+        }
     }
     
     func showImagePickerControlActionSheet() {

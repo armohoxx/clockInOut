@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func assignViewController() -> UIViewController {
-        return RegisterPageRouter.createModule()
+        return LaunchPageRouter.createModule()
     }
     
     func customizeNavBar() {

@@ -61,5 +61,12 @@ class ProfilePagePresenter: ProfilePagePresenterProtocol {
     func getLogout() {
         self.interactor?.setLogoutAfterDeleteUserData()
     }
-
+    
+    func getProfileImage(image_profile: String) {
+        self.view?.showProfileImage(image_profile: image_profile)
+    }
+    
+    func notifyProfileImage() {
+        self.interactor?.dowloadProfileImage()
+    }
 }

@@ -18,16 +18,13 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
     weak var presenter: RegisterPagePresenterProtocol?
     
     //create user via firebase authtication
-    func createUser(firstName: String, lastName: String, email: String, password: String) {
+    func createUser(firstName: String, lastName: String, email: String, password: String, image_profile: UIImage?) {
         
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
-            
-//            self?.uploadProfileImage(<#T##image: UIImage##UIImage#>, completion: <#T##((String?) -> ())##((String?) -> ())##(_ url: String?) -> ()#>)
             
             if (error != nil) {
                 self?.presenter?.notifyErrorCreateUser(error: error)
             } else {
-                
                 //keep firstname, lastname and uid to firststore
                 let db = Firestore.firestore()
                 
@@ -38,6 +35,7 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
                         self?.presenter?.notifyErrorCreateUser(error: error)
                     } else {
                         print("create user")
+                        self?.uploadProfileImage(image_profile: image_profile, uid: result!.user.uid as String)
                         self?.presenter?.notifySuccessCreateUser()
                     }
                 }
@@ -45,8 +43,52 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
         })
     }
     
-    func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:String?)->())) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    func uploadProfileImage(image_profile: UIImage?, uid: String) {
+        let db = Firestore.firestore()
+        
+        guard let image = image_profile, let data = image.jpegData(compressionQuality: 0.75) else {
+            print("Someting Wrong")
+            return
+        }
+    
         let storageRef = Storage.storage().reference().child("user_images/\(uid)")
+        
+        storageRef.putData(data, metadata: nil) { (metaData, error) in
+            if let error = error {
+                print("Someting Wrong: \(error.localizedDescription)")
+                return
+            }
+            
+            storageRef.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let url = url else {
+                    print("Someting Wrong")
+                    return
+                }
+                
+                let dataReference = db.collection("images_profile").document()
+                let documentUid = uid
+                let urlString = url.absoluteString
+                
+                let data = [
+                    "uid": documentUid,
+                    "imageUrl": urlString
+                ]
+                
+                dataReference.setData(data, completion: { error in
+                    if let error = error {
+                        print("Someting Wrong: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    print("Success ----------------")
+                })
+                
+            })
+        }
     }
 }
