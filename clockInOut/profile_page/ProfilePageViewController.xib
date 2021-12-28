@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="buttonChangePassword" destination="jKf-da-oGM" id="urm-nb-M5a"/>
                 <outlet property="buttonDeleteAccount" destination="7Au-cc-Mix" id="2Sq-Uw-YLU"/>
+                <outlet property="buttonUploadImage" destination="KEH-DW-oA2" id="Bi1-F9-pFb"/>
                 <outlet property="firstNameField" destination="sEg-8J-aZb" id="Tmj-0a-8la"/>
                 <outlet property="lastNameField" destination="b7Q-pF-NZU" id="dD1-UW-eaw"/>
                 <outlet property="profileImageView" destination="whm-0t-vz4" id="LxQ-q3-YQP"/>
@@ -36,8 +37,18 @@
                                         <constraint firstAttribute="width" constant="150" id="wOu-tc-YCZ"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-DW-oA2">
+                                    <rect key="frame" x="157.33333333333334" y="218" width="113.33333333333334" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Upload Image">
+                                        <color key="baseForegroundColor" systemColor="systemBlueColor"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="didTapUploadImage:" destination="-1" eventType="touchUpInside" id="3S9-bC-bS8"/>
+                                    </connections>
+                                </button>
                                 <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uwt-QN-bDP">
-                                    <rect key="frame" x="84" y="255" width="260" height="365"/>
+                                    <rect key="frame" x="84" y="273" width="260" height="365"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obd-rX-AIG">
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="20.333333333333332"/>
@@ -103,7 +114,9 @@
                             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="Uwt-QN-bDP" firstAttribute="centerX" secondItem="DgT-tA-07s" secondAttribute="centerX" id="6FI-7d-gM8"/>
-                                <constraint firstItem="Uwt-QN-bDP" firstAttribute="top" secondItem="whm-0t-vz4" secondAttribute="bottom" constant="45" id="Gr5-qL-rcz"/>
+                                <constraint firstItem="Uwt-QN-bDP" firstAttribute="top" secondItem="KEH-DW-oA2" secondAttribute="bottom" constant="24" id="6kY-nZ-Kr2"/>
+                                <constraint firstItem="KEH-DW-oA2" firstAttribute="centerX" secondItem="DgT-tA-07s" secondAttribute="centerX" id="NDI-Wl-1sc"/>
+                                <constraint firstItem="KEH-DW-oA2" firstAttribute="top" secondItem="whm-0t-vz4" secondAttribute="bottom" constant="8" symbolic="YES" id="ZTf-DB-nTz"/>
                                 <constraint firstItem="whm-0t-vz4" firstAttribute="top" secondItem="DgT-tA-07s" secondAttribute="top" constant="60" id="jz4-5y-xR3"/>
                                 <constraint firstItem="whm-0t-vz4" firstAttribute="centerX" secondItem="DgT-tA-07s" secondAttribute="centerX" id="vgI-gw-GAN"/>
                             </constraints>
@@ -135,6 +148,9 @@
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

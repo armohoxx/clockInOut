@@ -32,6 +32,7 @@ protocol ProfilePagePresenterProtocol: class {
     func getLogout()
     func getProfileImage(image_profile: String)
     func notifyProfileImage()
+    func notifyUploadImage(image_profile: UIImage?)
 }
 
 //MARK: Interactor -
@@ -43,6 +44,7 @@ protocol ProfilePageInteractorProtocol: class {
     func deleteUser(confirmDelete: String)
     func setLogoutAfterDeleteUserData()
     func dowloadProfileImage()
+    func uploadProfileImage(image_profile: UIImage?)
 }
 
 //MARK: View -

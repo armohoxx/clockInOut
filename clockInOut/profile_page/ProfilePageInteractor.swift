@@ -11,6 +11,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfilePageInteractor: ProfilePageInteractorProtocol {
 
@@ -120,10 +121,98 @@ class ProfilePageInteractor: ProfilePageInteractorProtocol {
                       self.urlImagesFromFirestore = document.data()["imageUrl"] as! String
                   }
                   
-//                  print(self.urlImagesFromFirestore)
                   self.presenter?.getProfileImage(image_profile: self.urlImagesFromFirestore)
               }
               
+          }
+    }
+    
+    func uploadProfileImage(image_profile: UIImage?) {
+        
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        guard let image = image_profile, let data = image.jpegData(compressionQuality: 0.75) else {
+            print("Someting Wrong")
+            return
+        }
+        
+        let storageRef = Storage.storage().reference().child("user_images/\(userUid)")
+        
+        db.collection("images_profile")
+          .document(userUid)
+          .getDocument { (document,error) in
+                if let document = document, document.exists {
+                      let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                      print("Document data: \(dataDescription)")
+                      
+                    storageRef.putData(data, metadata: nil) { (metaData, error) in
+                        if let error = error {
+                            print("Someting Wrong: \(error.localizedDescription)")
+                            return
+                        }
+                        
+                        storageRef.downloadURL(completion: { (url, error) in
+                            if let error = error {
+                                print(error.localizedDescription)
+                                return
+                            }
+                            
+                            guard let url = url else {
+                                print("Someting Wrong")
+                                return
+                            }
+                            
+                            let urlString = url.absoluteString
+                            
+                            self.db.collection("images_profile")
+                              .document(userUid)
+                              .updateData(["imageUrl" : urlString]) { error in
+                                  if let error = error {
+                                      self.presenter?.notifyErrorAlert(error: error)
+                                      } else {
+                                          self.presenter?.notifyAlert(title: "Success", message: "Profile image edited")
+                                      }
+                              }
+                        })
+                    }
+                  } else {
+                      storageRef.putData(data, metadata: nil) { (metaData, error) in
+                          if let error = error {
+                              print("Someting Wrong: \(error.localizedDescription)")
+                              return
+                          }
+                          
+                          storageRef.downloadURL(completion: { (url, error) in
+                              if let error = error {
+                                  print(error.localizedDescription)
+                                  return
+                              }
+                              
+                              guard let url = url else {
+                                  print("Someting Wrong")
+                                  return
+                              }
+                              
+                              let dataReference = self.db.collection("images_profile").document(userUid)
+                              let documentUid = userUid
+                              let urlString = url.absoluteString
+                              
+                              let data = [
+                                  "uid": documentUid,
+                                  "imageUrl": urlString
+                              ]
+                              
+                              dataReference.setData(data, completion: { error in
+                                  if let error = error {
+                                      print("Someting Wrong: \(error.localizedDescription)")
+                                      return
+                                  }
+                                  
+                                  self.presenter?.notifyAlert(title: "Success", message: "Profile image uploaded")
+                              })
+                          })
+                      }
+                  }
           }
     }
     

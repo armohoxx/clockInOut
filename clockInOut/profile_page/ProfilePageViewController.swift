@@ -22,6 +22,7 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
     @IBOutlet weak var buttonChangePassword: UIButton!
     @IBOutlet weak var buttonDeleteAccount: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var buttonUploadImage: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,15 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
     
     @objc func didTapProfile() {
         self.presenter?.notifyRouteMenu()
+    }
+    
+    @IBAction func didTapUploadImage(_ sender: UIButton) {
+        guard let profileImage = self.profileImageView.image else {
+            self.showAlert(title: "Someting Wrong", message: "Please re-upload later")
+            return
+        }
+        
+        self.presenter?.notifyUploadImage(image_profile: profileImage)
     }
     
     @IBAction func didTapChangePassword(_ sender: UIButton) {

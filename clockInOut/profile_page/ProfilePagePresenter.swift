@@ -69,4 +69,8 @@ class ProfilePagePresenter: ProfilePagePresenterProtocol {
     func notifyProfileImage() {
         self.interactor?.dowloadProfileImage()
     }
+    
+    func notifyUploadImage(image_profile: UIImage?) {
+        self.interactor?.uploadProfileImage(image_profile: image_profile)
+    }
 }

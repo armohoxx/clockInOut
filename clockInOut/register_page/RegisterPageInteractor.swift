@@ -70,7 +70,7 @@ class RegisterPageInteractor: RegisterPageInteractorProtocol {
                     return
                 }
                 
-                let dataReference = db.collection("images_profile").document()
+                let dataReference = db.collection("images_profile").document(uid)
                 let documentUid = uid
                 let urlString = url.absoluteString
                 
