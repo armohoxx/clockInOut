@@ -23,6 +23,7 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
     @IBOutlet weak var buttonDeleteAccount: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var buttonUploadImage: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,21 @@ class ProfilePageViewController: UIViewController, ProfilePageViewProtocol {
         self.setUpImageTap()
         self.presenter?.notifyDataFromFirestore()
         self.presenter?.notifyProfileImage()
+        
+        
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        let isLandscape = UIDevice.current.orientation.isLandscape
+        
+        //ตรวจสอบว่าเป็นเเนวนอนหรือไม่
+        if isLandscape == true {
+            DispatchQueue.main.async{
+                print(UIDevice.current.orientation.isLandscape)
+                self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
+            }
+        }
     }
     
     func showProfileImage(image_profile: String) {

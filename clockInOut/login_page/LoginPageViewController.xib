@@ -35,7 +35,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ba8-eD-RUD" customClass="CopyableTextField" customModule="clockInOut" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ba8-eD-RUD" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="40" width="328" height="34"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -54,7 +54,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Esy-gR-QgU">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press enter your password" textAlignment="natural" minimumFontSize="17" background="eye." translatesAutoresizingMaskIntoConstraints="NO" id="Esy-gR-QgU" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="134" width="328" height="34"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -121,4 +121,7 @@
             <point key="canvasLocation" x="131.77570093457942" y="130.23758099352054"/>
         </view>
     </objects>
+    <resources>
+        <image name="eye." width="128" height="128"/>
+    </resources>
 </document>

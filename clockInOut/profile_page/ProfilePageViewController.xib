@@ -15,6 +15,7 @@
                 <outlet property="firstNameField" destination="sEg-8J-aZb" id="Tmj-0a-8la"/>
                 <outlet property="lastNameField" destination="b7Q-pF-NZU" id="dD1-UW-eaw"/>
                 <outlet property="profileImageView" destination="whm-0t-vz4" id="LxQ-q3-YQP"/>
+                <outlet property="scrollView" destination="cbi-FC-Krp" id="ioG-vO-VtU"/>
                 <outlet property="uidField" destination="1JJ-yC-pUC" id="lGi-V0-mPy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,7 +57,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEg-8J-aZb">
+                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEg-8J-aZb" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="40.333333333333314" width="260" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,7 +70,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7Q-pF-NZU">
+                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7Q-pF-NZU" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="134.66666666666669" width="260" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,7 +83,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-yC-pUC">
+                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-yC-pUC" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="229" width="260" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,6 +129,7 @@
                         <constraint firstItem="DgT-tA-07s" firstAttribute="top" secondItem="cbi-FC-Krp" secondAttribute="top" id="BHl-dD-zDP"/>
                         <constraint firstAttribute="trailing" secondItem="DgT-tA-07s" secondAttribute="trailing" id="OeK-HS-8zm"/>
                         <constraint firstItem="DgT-tA-07s" firstAttribute="leading" secondItem="cbi-FC-Krp" secondAttribute="leading" id="X27-Fo-1Pw"/>
+                        <constraint firstItem="DgT-tA-07s" firstAttribute="height" secondItem="cbi-FC-Krp" secondAttribute="height" id="Ze6-Ly-M9u"/>
                         <constraint firstItem="DgT-tA-07s" firstAttribute="centerY" secondItem="cbi-FC-Krp" secondAttribute="centerY" id="qcj-2B-Nqc"/>
                     </constraints>
                 </scrollView>

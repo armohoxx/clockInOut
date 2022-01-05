@@ -17,6 +17,7 @@
                 <outlet property="lastNameField" destination="N9A-Bp-559" id="Onj-wD-Txr"/>
                 <outlet property="passwordField" destination="8EB-WQ-g6p" id="Ane-9U-caD"/>
                 <outlet property="profileImageView" destination="ofE-cx-TZC" id="Txq-YC-V19"/>
+                <outlet property="scrollView" destination="peJ-wT-yuy" id="5VD-XI-hf5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,7 +48,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5N1-wF-QAw">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5N1-wF-QAw" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="35.333333333333314" width="250" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,7 +61,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-Bp-559">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-Bp-559" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="119.66666666666669" width="250" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,7 +74,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K4d-4Q-Oui">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K4d-4Q-Oui" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="204" width="250" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,7 +87,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8EB-WQ-g6p">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8EB-WQ-g6p" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="288.33333333333337" width="250" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,7 +100,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-hM-d8m">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-hM-d8m" customClass="CustomTextField" customModule="clockInOut" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="372.66666666666663" width="250" height="34"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,6 +166,23 @@
             <point key="canvasLocation" x="133.17757009345794" y="121.81425485961124"/>
         </view>
     </objects>
+    <designables>
+        <designable name="5N1-wF-QAw">
+            <size key="intrinsicContentSize" width="173" height="34"/>
+        </designable>
+        <designable name="8EB-WQ-g6p">
+            <size key="intrinsicContentSize" width="174" height="34"/>
+        </designable>
+        <designable name="K4d-4Q-Oui">
+            <size key="intrinsicContentSize" width="146.33333333333334" height="34"/>
+        </designable>
+        <designable name="Mjh-hM-d8m">
+            <size key="intrinsicContentSize" width="227.33333333333334" height="34"/>
+        </designable>
+        <designable name="N9A-Bp-559">
+            <size key="intrinsicContentSize" width="170.66666666666666" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="add_profile" width="128" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">

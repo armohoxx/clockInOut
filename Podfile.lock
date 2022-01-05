@@ -384,6 +384,7 @@ PODS:
   - PromisesObjC (1.2.12)
   - Protobuf (3.19.1)
   - Result (4.1.0)
+  - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -400,6 +401,7 @@ DEPENDENCIES:
   - Kingfisher
   - ModelMapper
   - Moya
+  - TinyConstraints
 
 SPEC REPOS:
   trunk:
@@ -435,6 +437,7 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - Result
+    - TinyConstraints
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -469,7 +472,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 3724efa50cb2846d7ccebc8691c574e85fd74471
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 836a09d82df28734f704a0f8119eb91738b03c12
+PODFILE CHECKSUM: a77037b012435f40ec6968649aefb7f0fcf9d216
 
 COCOAPODS: 1.11.2

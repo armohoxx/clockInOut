@@ -16,6 +16,8 @@ import FirebaseRemoteConfig
 class LoginPageViewController: UIViewController, LoginPageViewProtocol {
 
 	var presenter: LoginPagePresenterProtocol?
+    var togglePasswordClick = false
+    let iconTogglePassword = UIImageView()
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -51,20 +53,8 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
         }
         
         navBarLogin.delegate = self
+        self.showTogglePassword()
         self.presenter?.getFetchValue()
-    }
-    
-    //change background via value get from remote config
-    func updateBackground(newBackground: Bool) {
-        if newBackground == false {
-            DispatchQueue.main.async {
-                self.view.insertSubview(self.defaultsImage, at: 0)
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.view.insertSubview(self.updatedImages, at: 0)
-            }
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -88,6 +78,53 @@ class LoginPageViewController: UIViewController, LoginPageViewProtocol {
         }
         
         self.presenter?.notifyCheckLogin(email: email, password: password)
+    }
+    
+    @objc func toggleTapped(toggleTapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedIcon = toggleTapGestureRecognizer.view as! UIImageView
+        
+        if togglePasswordClick {
+            togglePasswordClick = false
+            tappedIcon.image = UIImage(systemName: "eye.fill")
+            self.passwordField.isSecureTextEntry = false
+        } else {
+            togglePasswordClick = true
+            tappedIcon.image = UIImage(systemName: "eye.slash.fill")
+            self.passwordField.isSecureTextEntry = true
+        }
+    }
+    
+    func showTogglePassword() {
+        iconTogglePassword.image = UIImage(systemName: "eye.slash.fill")
+        
+        let contentView = UIView()
+        contentView.addSubview(iconTogglePassword)
+        
+        contentView.frame = CGRect(x: 0, y: 0, width: UIImage(systemName: "eye.slash.fill")?.size.width ?? 30,
+                                   height: UIImage(systemName: "eye.slash.fill")?.size.height ?? 30)
+        iconTogglePassword.frame = CGRect(x: -10, y: 0, width: UIImage(systemName: "eye.slash.fill")?.size.width ?? 30,
+                                          height: UIImage(systemName: "eye.slash.fill")?.size.height ?? 30)
+        
+        self.passwordField.rightView = contentView
+        self.passwordField.rightViewMode = .always
+        
+        let toggleTapGestureRecognizer = UITapGestureRecognizer(target: self, action:
+            #selector(toggleTapped(toggleTapGestureRecognizer:)))
+        iconTogglePassword.isUserInteractionEnabled = true
+        iconTogglePassword.addGestureRecognizer(toggleTapGestureRecognizer)
+    }
+    
+    //change background via value get from remote config
+    func updateBackground(newBackground: Bool) {
+        if newBackground == false {
+            DispatchQueue.main.async {
+                self.view.insertSubview(self.defaultsImage, at: 0)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.view.insertSubview(self.updatedImages, at: 0)
+            }
+        }
     }
     
     func showResetPasswordAlert() {

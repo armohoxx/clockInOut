@@ -19,6 +19,7 @@ pod 'Firebase/Firestore'
 pod 'Firebase/RemoteConfig'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'TinyConstraints'
   # Optionally, include the Swift extensions if you're using Swift.
 pod 'FirebaseFirestoreSwift'
 
